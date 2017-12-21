@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>CyberClaz | Initialize Claz</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <!-- CSS  -->
+      <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
+      <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+      <link rel="stylesheet" href="js/fuelux/fuelux.css" type="text/css" />
+      <!-- JS -->
+      <script src="js/google/jquery.min.js"></script> 
+      <script src="js/google/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/jason_parser.js"></script>
+      <script src="js/Controllers/webServerService.js"></script>
+      <style>
+         .thumb {
+         width: 50px;
+         display: inline-block;
+         }
+         .avatar {
+         position: relative;
+         display: block;
+         border-radius: 500px;
+         white-space: nowrap;
+         }
+         .m-r {
+         margin-right: 15px;
+         }
+         .pull-left {
+         float: left !important;
+         }
+         .avatar i.md {
+         width: 12px;
+         height: 12px;
+         margin: 1px;
+         }
+         .avatar i {
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 10px;
+         height: 10px;
+         border-width: 2px;
+         border-style: solid;
+         border-radius: 100%;
+         }
+         .b-black {
+         border: none;
+         }
+      </style>
+   </head>
+   <body>
+      <section class="hbox stretch">
+         <aside class="bg-black dk aside-sm nav-vertical only-icon" id="nav">
+            <section class="vbox" >
+               <header class="dker nav-bar" > <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="javascript:void(0)" class="nav-brand" style=""><img src="images/login-logo.png"  id="proImg" style="width:60px;"></a> <a onclick ="signout()" class="btn btn-link visible-xs" > <i class="fa fa-power-off"></i> </a>  </header>
+               <footer class="footer lt hidden-xs text-center"> <a href="javascript:void(0)" onclick ="signout()"  class="btn btn-sm btn-link"> <i class="fa fa-power-off"></i> <br>Exit </a> </footer>
+               <section>
+                  <!-- user --> 
+                  <div class="lt nav-user hidden-xs pos-rlt" style="    margin-top: -50px;">
+                     <div class="nav-avatar pos-rlt" id="picturePanel">
+                     </div>
+                  </div>
+                  <!-- / user --> <!-- nav --> 
+                  <nav class="nav-primary hidden-xs">
+                     <ul class="nav" id="sideBar">
+                     </ul>
+                  </nav>
+                  <!-- / nav --> 
+               </section>
+            </section>
+         </aside>
+         <!-- .vbox --> 
+         <section id="content">
+            <section class="hbox stretch bg-white-only">
+               <!-- .aside --> 
+               <aside class="">
+                  <section class="vbox">
+                     <header class="header bg-white pos-rlt navbar navbar-default show" Style="border-bottom:1px solid #F2F2F2;">
+                        <span class="arrow left" style="border-right-color:#fff"></span> 
+                        <div class="collapse navbar-collapse pull-in">
+                           <img src="images/logo.png" height="50px">
+                           <ul class="nav navbar-nav navbar-right">
+                              <li class="hidden-xs">
+                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                                    <form name="Tick">
+                                       <b>
+                                          <div  class="fa fa-clock-o text-muted" style="font-size:20px;"></div>
+                                          &nbsp;&nbsp;<input type="text" size="11" name="Clock" style="font-size:15px;border:none; background: transparent;" readonly>
+                                       </b>
+                                    </form>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </header>
+                     <section>
+                        <section class="hbox stretch">
+                           <aside>
+                              <section class="vbox">
+                                 <section class="scrollable wrapper">
+                                    <div class="row">
+                                       <div class="col-lg-8">
+                                          <section class="panel">
+                                             <div class="panel-body" id="clazDetails">
+                                                <form data-validate="parsley" method="post" action="#"  id="startrecord_frm">
+                                                   <p class="text-muted">Fill the fields below.</p>
+                                                   <div class="form-group pull-in clearfix">
+                                                      <div class="col-sm-4"><label>Course</label>  <input type="text" id="curcourseName" class="form-control" value="" data-required="true" required> </div>
+                                                      <div class="col-sm-4"><label>Semester</label>  <input type="text" id="cursemester" class="form-control" value="" data-required="true" required> </div>
+                                                      <div class="col-sm-4"><label>Subject</label>  <input type="text" id="cursubject" class="form-control" value="" data-required="true" required> </div>
+                                                   </div>
+                                                   <div class="form-group pull-in clearfix">
+                                                      <div class="col-sm-4"><label>Topic</label>   <input type="text" class="form-control" placeholder="Enter Topic" data-required="true" id="topicName" required> </div>
+                                                      <div class="col-sm-4"><label>Chapter Name</label>   <input type="text" class="form-control" placeholder="Enter Chapter Name" data-required="true" id="chapterName" required>
+                                                         <input type="hidden" class="form-control" value="" data-required="true" id="scheduleId"><input type="hidden" class="form-control" value="0" data-required="true" id="subjectId"><input type="hidden" class="form-control" value="60" data-required="true" id="duration">
+                                                      </div>
+                                                      <div class="col-sm-4"> <br><button style="float:right;" type="submit" class="btn btn-success btn-s-xs" >Start Class</button> </div>
+                                                   </div>
+                                                </form>
+                                             </div>
+                                          </section>
+                                          <div class="row">
+                                             <div class="col-lg-12">
+                                                <header class="panel-heading">Students In Class Room</header>
+                                                <div class="panel-body" style="min-height:150px;" id="onlineStudents"> 
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="row">
+                                             <div class="col-lg-12">
+                                                <header class="panel-heading">Remote Students</header>
+                                                <div class="panel-body" style="min-height:150px;" id="remoteStudents"> 
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-lg-4">
+                                          <header class="panel-heading">Other Students</header>
+                                          <div class="panel-body" style="min-height:200px;" id="OfflineStudents"> 
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </section>
+                              </section>
+                           </aside>
+                        </section>
+                     </section>
+                  </section>
+               </aside>
+               <!-- /.aside --> 
+            </section>
+            <a href="javascript:void(0)" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> 
+         </section>
+         <!-- /.vbox --> 
+      </section>
+      <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" 
+         aria-labelledby="myModalLabel" aria-hidden="true">
+         <br><br><br><br>
+         <div class="modal-dialog" style="margin-top:-40px;">
+            <div class="modal-content" style="background-image:url('images/poster1.jpg');background-repeat:no-repeat;">
+               <div class="modal-body" style="color:#499989">
+                  <form name="conf_frm" id="conf_frm" action="#" method="post" data-validate="parsley" >
+                     <h5 style="color:#000;">
+                        <b>
+                           <div class="fa fa-pencil"></div>
+                           &nbsp;&nbsp;Edit Profile
+                        </b>
+                     </h5>
+                     <br>
+                     <div class="form-group pull-in clearfix">
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>First Name</label> 
+                           <input type="text" value="" class="form-control" data-required="true" id="itfirstName" name="itfirstName" style="background-color:transparent;" required> 
+                        </div>
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>Middle Name</label> 
+                           <input type="text" class="form-control" id="itmiddleName" name="itmiddleName" data-required="true" style="background-color:transparent;" value="" required> 
+                        </div>
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>Last Name</label> 
+                           <input type="text" class="form-control" id="itlastName" name="itlastName" data-required="true" style="background-color:transparent;" value="" required> 
+                        </div>
+                     </div>
+                     <div class="form-group pull-in clearfix">
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>Date of Birth</label> 
+                           <input type="text" class="form-control" data-required="true" id="itdob" name="itdob" style="background-color:transparent;" value="" required readonly> 
+                        </div>
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>Mobile Number</label> 
+                           <input type="text" class="form-control" id="itmobileNumber" name="itmobileNumber" data-required="true" style="background-color:transparent;" value="" required> 
+                        </div>
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>Email Address</label> 
+                           <input type="text" class="form-control" id="itemailId" name="itemailId" data-required="true" style="background-color:transparent;" value=""  required> 
+                        </div>
+                     </div>
+                     <div class="form-group pull-in clearfix"> 
+                     </div>
+                     <div class="form-group">
+                        <label class="col-lg-2 control-label">Address</label> 
+                        <div class="col-lg-10"> 
+                           <textarea placeholder="Enter your address here..." class="form-control"  id="itaddress" name="itaddress"  rows="3" data-minwords="6" data-required="true" placeholder="" style="resize:none;background-color: transparent;" required></textarea>
+                        </div>
+                     </div>
+                     <div class="modal-footer" style="margin-top:100px;">
+                        <div id="msgbox_new" style="color:#5BBFAB;float:left;"></div>
+                        <button type="submit" Style="border:none;background-color:#4c5566" class="btn btn-primary" data-dismiss="modal" onclick="loadProfile()">
+                        Cancel
+                        </button>
+                        <button type="submit" Style="border:none;background-color:#5BBFAB" class="btn btn-primary" disabled id="profileUpdate">
+                        Submit
+                        </button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal --> 
+      </div>
+      <div class="modal fade" style="overflow: hidden;margin-top:150px;"   id="uploadModal" tabindex="-1" role="dialog" 
+         aria-labelledby="myModalLabel" aria-hidden="true" >
+         <br><br><br><br>
+         <div class="modal-dialog" style="margin-top:-40px;">
+            <div class="modal-content" style="background-image:url('images/poster1.jpg');background-repeat:no-repeat;">
+               <div class="modal-body" style="color:#499989">
+                  <form action="#" method="post" enctype="multipart/form-data" id="photo_frm"  onsubmit="return false;">
+                     <h5 style="color:#000;">
+                        <b>
+                           <div class="fa fa-user"></div>
+                           &nbsp;&nbsp;Upload Profile Picture
+                        </b>
+                     </h5>
+                     <br>
+                     <div class="form-group pull-in clearfix">
+                        <div class="col-sm-6" >
+                           <input type='file' id="imgInp"  class="upload" name="file">
+                           <!-- <input type="file" class="upload" name="file" id="file"> -->
+                        </div>
+                        <div class="col-sm-6" id="imagePreview" style="display:none;"> 
+                           <img id="blah" src="#" alt="your image" width="100%">
+                        </div>
+                     </div>
+                     <div class="modal-footer">
+                        <div id="msgbox_pic" style="color:#5BBFAB;float:left;"></div>
+                        <button type="submit" Style="border:none;background-color:#4c5566" class="btn btn-primary" data-dismiss="modal">
+                        Cancel
+                        </button>
+                        <button type="submit" Style="border:none;background-color:#5BBFAB" class="btn btn-primary"  disabled id="uploadButton" onclick="changePicture(this.form.file.value, ['gif', 'jpg', 'png', 'jpeg'])">
+                        Upload
+                        </button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal --> 
+      </div>
+      <div class="modal fade" style="overflow: hidden;margin-top:100px;"   id="passwordModal" tabindex="-1" role="dialog" 
+         aria-labelledby="myModalLabel" aria-hidden="true" >
+         <br><br><br><br>
+         <div class="modal-dialog" style="margin-top:-40px;">
+            <div class="modal-content" style="background-image:url('images/poster1.jpg');background-repeat:no-repeat;">
+               <div class="modal-body" style="color:#499989">
+                  <div id="passwordPanel" style="display:block">
+                     <form name="password_frm" id="password_frm" action="" method="post" data-validate="parsley" >
+                        <h5 style="color:#000;">
+                           <b>
+                              <div class="fa fa-key"></div>
+                              &nbsp;&nbsp;Change Password
+                           </b>
+                        </h5>
+                        <br>
+                        <div class="form-group pull-in clearfix">
+                           <div class="col-sm-8" > 
+                              <label>Current Password</label> 
+                              <input type="password" class="form-control" style="background-color:transparent;" required id="currentPass" name="currentPass"> 
+                           </div>
+                        </div>
+                        <div class="form-group pull-in clearfix">
+                           <div class="col-sm-8" >  
+                              <label>New Password</label> 
+                              <input type="password" class="form-control" style="background-color:transparent;" required required minlength="6" id="newPass" name="newPass"> 
+                           </div>
+                        </div>
+                        <div class="form-group pull-in clearfix">
+                           <div class="col-sm-8" > 
+                              <label>Confirm New Password</label> 
+                              <input type="password" class="form-control" style="background-color:transparent;" required required minlength="6" id="confPass" name="confPass"> 
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <div id="msgbox_password" style="color:#5BBFAB;float:left;"></div>
+                           <button type="submit" Style="border:none;background-color:#4c5566" class="btn btn-primary" data-dismiss="modal" onclick="loadProfile()">
+                           Cancel
+                           </button>
+                           <button type="submit" Style="border:none;background-color:#5BBFAB" class="btn btn-primary"  >
+                           Submit
+                           </button>
+                        </div>
+                     </form>
+                  </div>
+                  <div id="expirePanel" style="display:none">
+                     <br><br>
+                     <center>
+                        <img src="images/green_loader.gif"><br>
+                        <div style="font-size:15px;" >Your session has been expired please Log In With New Password !!</div>
+                     </center>
+                  </div>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal --> 
+      </div>
+      
+        <div id="isMobile"></div>
+      <script type="text/javascript" src="js/Controllers/sideBarController.js"></script>
+      <script type="text/javascript" src="js/Controllers/initializeClazController.js"></script>
+   </body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content=""/>
+   <meta name="keywords" content=" "/>
+   <meta name="author" content=""/>
+   <title>CyberClaz | Register Account</title>
+   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+   <link rel="icon" href="favicon.ico" type="image/x-icon">
+   <link href="css/register-theme-2.css" rel="stylesheet" id="for-demo" >
+   <script src="js/1.11.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
+   <script src="js/Controllers/webServerService.js"></script>
+   <script src="js/Controllers/registrationController.js"></script>
+</head>
+<body style="background-color:white;background-image:url('images/background.jpg');background-repeat:no-repeat; background-size:cover;                     
+   background-repeat: no-repeat;" >
+   <div class="row">
+      <div class="col-lg-12">
+         <div class="col-lg-6"></div>
+         <div class="col-lg-6">
+            <div style="display:block"  id="firstStep" >
+               <center><img src="images/logo_new.png" id="regImage"></center>
+               <h2>Create CyberClaz Account!!</h2>
+               <br>
+               <form role="form" action="" style="" id="reg_frm" method="post" data-validate="parsley">
+                  <div class="row">
+                     <div  class="col-lg-10">
+                        <div style="margin-bottom:20px;" class="col-lg-12">
+                           <div class="col-lg-6"> <input type="text" class="user" placeholder="First Name" id="firstname" data-required="true" data-type="digits" ></div>
+                           <div class="col-lg-6"> <input type="text" class="user" placeholder="Username" id="username" data-required="true" data-type="digits" > </div>
+                        </div>
+                        <div style="margin-bottom:20px;" class="col-lg-12">
+                           <div class="col-lg-6"> <input type="text" class="user" placeholder="Mobile Number" id="mobile" data-required="true" data-type="number" data-rangelength="[10,15]" autocomplete="off"> </div>
+                           <div class="col-lg-6"> <input type="text" class="user" placeholder="Email Address" id="email" data-required="true" data-type="email" autocomplete="off"></div>
+                        </div>
+                        <div style="margin-bottom:20px;" class="col-lg-12">
+                           <div class="col-lg-6"> <input type="password" class="pass" placeholder="Password" id="password" data-required="true" data-type="alphanum" data-rangelength="[8,15]" autocomplete="off"> </div>
+                           <div class="col-lg-6"> <input type="password" class="pass" placeholder="Confirm Password" id="confirmpassword" data-required="true" data-type="alphanum" data-rangelength="[8,15]" autocomplete="off" data-equalto="#password"></div>
+                        </div>
+                     </div>
+                     <div style="margin-bottom:20px;" class="col-lg-2">
+                        <button class="submit" style="height: 205px; " id="Fform"><img src="images/User_male_black_shape_24.png" id="userImg"></button>
+                     </div>
+                     <div class="col-lg-12">
+                        <a href="index.html">
+                           <p class="login_bottom"><< Back to Login</p>
+                        </a>
+                     </div>
+                  </div>
+               </form>
+               <div id="msgbox" style="font-weight:bold;font-size:17px;"></div>
+            </div>
+            <div style="display:none"  id="secondStep" >
+               <center><img src="images/logo_new.png" id="regImage"></center>
+               <p class="verifydesc">An Email code and SMS code has been sent to your registered Email & Phone Number. To complete your registration, please enter the security codes below.</p>
+               <br><br>
+               <form action="" role="form"  id="conf_frm" method="post" data-validate="parsley">
+                  <div class="row">
+                     <div  class="col-lg-10">
+                        <div style="margin-bottom:20px;" class="col-lg-12">
+                           <div class="col-lg-6"> <input type="text" class="user" placeholder="Email Code" id="emailCode" data-required="true" data-maxlength="5" data-type="number"></div>
+                           <div class="col-lg-6"><input type="text" class="user" placeholder="SMS Code" id="smsCode" data-required="true" data-maxlength="5" data-type="number"> </div>
+                        </div>
+                     </div>
+                     <div  class="col-lg-2"> 
+                        <button class="submit" style="height:50px;" id="sform"><img src="images/White_check.svg.png" height="20"  id="userImg"> </button>
+                     </div>
+                  </div>
+               </form>
+               <div id="msgbox_verify" style="font-weight:bold;font-size:17px;"></div>
+            </div>
+            <div style="display:none"  id="thirdStep" >
+               <center><img src="images/logo_new.png" id="regImage"></center>
+               <p class="verifydescLast">Please Complete Your Profile To Continue..</p>
+               <br><br>
+               <form action="" role="form" id="profile_frm" method="post" data-validate="parsley">
+                  <div class="row">
+                     <div  class="col-lg-10">
+                        <div style="margin-bottom:20px;" class="col-lg-12">
+                           <div class="col-lg-4"> <input type="text" class="user" placeholder="FirstName" id="fname" style="margin-right:10px;" data-required="true" data-type="digits"></div>
+                           <div class="col-lg-4"><input type="text" class="user" placeholder="Middle Name" id="mname" style="margin-right:10px;" data-required="true" data-type="digits"> </div>
+                           <div class="col-lg-4"> <input type="text" class="user" placeholder="Last Name" id="lname" data-required="true" data-type="digits"> </div>
+                        </div>
+                        <div style="margin-bottom:20px;" class="col-lg-12">
+                           <div class="col-lg-4"> <input type="text" class="user" placeholder="Mobile Number" id="mob" style="margin-right:10px;" data-required="true" data-type="number" data-rangelength="[10,15]" autocomplete="off"></div>
+                           <div class="col-lg-4"> <input type="text" class="user" placeholder="Email Address" id="emailId" style="margin-right:10px;" data-required="true" data-type="email"  autocomplete="off"> </div>
+                           <div class="col-lg-4">  <input  class="user" placeholder="Date Of Birth" id="dob"  type="text" onfocus="(this.type='date')" data-required="true" > </div>
+                        </div>
+                        <div style="margin-bottom:20px;" class="col-lg-12">
+                           <div class="col-lg-12"> <textarea  class="user"  placeholder="Address" id="address" data-required="true"  ></textarea></div>
+                        </div>
+                     </div>
+                     <div  class="col-lg-2"> 
+                        <button class="submit" style="height:230px; margin-right:80px;">
+                        <img src="images/White_check.svg.png" height="20" id="userImg">
+                        </button>
+                     </div>
+                  </div>
+               </form>
+               <div id="msgbox_complete" style="font-weight:bold;font-size:17px;"></div>
+            </div>
+            <div style="display:none;margin-top:10%"  id="lastStep" >
+               <center><img src="images/logo_new.png"  id="regImage"></center>
+               <div  class="col-lg-12">
+                  <p class="verifydesc"> Your profile has been created. Please login to access your account.</p>
+                  <br><br>
+                  <center>  <a href="index.html" >
+                     <img src="images/final_login.png" height="100px">
+                     </a>
+                  </center>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="js/parsley/parsley.min.js"></script>
+   <script src="js/wizard/jquery.bootstrap.wizard.js"></script><script src="js/wizard/demo.js"></script> 
+</body>
+</html>

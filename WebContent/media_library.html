@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>CyberClaz | Media Library</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <!-- CSS  -->
+      <link rel="stylesheet" href="css/app.v2.css" type="text/css" /> 
+       <link rel="stylesheet" href="css/chatbox.css" type="text/css" />
+      <link rel="stylesheet" href="css/datatables.css" type="text/css" />
+      <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+   
+
+    <!-- JS -->
+    <script src="popup/jquery.js"></script>
+      <script src="js/google/jquery-ui.js"></script>
+      
+ 
+      <link rel="stylesheet" type="text/css" href="popup/jquery.fancybox.css" />
+      <link rel="stylesheet" type="text/css" href="popup/jquery.fancybox-buttons.css" />
+      <link href="css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+      
+   
+  
+      <script type="text/javascript" src="popup/jquery.fancybox.js"></script>
+      <script src="js/Controllers/webServerService.js"></script>
+
+
+
+<style>
+#example_filter{
+
+margin-top:-50px;
+
+}
+</style>
+
+
+
+
+
+   </head>
+   <body>
+      <section class="hbox stretch">
+         <!-- .aside --> 
+         <aside class="bg-black dk aside-sm nav-vertical only-icon" id="nav">
+            <section class="vbox" >
+               <header class="dker nav-bar" > <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="javascript:void(0)" class="nav-brand" style=""><img src="images/login-logo.png"  id="proImg" style="width:60px;"></a> <a onclick ="signout()" class="btn btn-link visible-xs" > <i class="fa fa-power-off"></i> </a>  </header>
+               <footer class="footer lt hidden-xs text-center"> <a href="javascript:void(0)" onclick ="signout()"  class="btn btn-sm btn-link"> <i class="fa fa-power-off"></i> <br>Exit </a> </footer>
+               <section>
+                  <!-- user --> 
+                  <div class="lt nav-user hidden-xs pos-rlt" style="    margin-top: -50px;">
+                     <div class="nav-avatar pos-rlt" id="picturePanel">
+                     </div>
+                  </div>
+                  <!-- / user --> <!-- nav --> 
+                  <nav class="nav-primary hidden-xs">
+                     <ul class="nav" id="sideBar">
+                     </ul>
+                  </nav>
+                  <!-- / nav --> 
+               </section>
+            </section>
+         </aside>
+         <!-- .vbox --> 
+         <section id="content">
+            <section class="hbox stretch bg-white-only">
+               <!-- .aside --> 
+               <aside class="">
+                  <section class="vbox">
+                     <header class="header bg-white pos-rlt navbar navbar-default show" Style="border-bottom:1px solid #F2F2F2;">
+                        <span class="arrow left" style="border-right-color:#fff"></span> 
+                        <div class="collapse navbar-collapse pull-in">
+                           <img src="images/logo.png" height="50px">
+                           <ul class="nav navbar-nav navbar-right">
+                              <li class="hidden-xs">
+                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                                    <form name="Tick">
+                                       <b>
+                                          <div  class="fa fa-clock-o text-muted" style="font-size:20px;"></div>
+                                          &nbsp;&nbsp;<input type="text" size="11" name="Clock" style="font-size:15px;border:none; background: transparent;" readonly>
+                                       </b>
+                                    </form>
+                                 </a>
+                              </li>
+                              
+                              
+                              
+                              
+                                            <li class="dropdown">
+            <a href="#" class="dropdown-toggle  dker" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left m-t-n-xs m-r-xs" id="picturePanelNav"> </span> <span id="namePanelNav"></span> <b class="caret"></b> </a> 
+            <ul class="dropdown-menu animated fadeInLeft">
+         
+               <li> <a href="profile.html"><i class="fa fa-user"></i>&nbsp;&nbsp;Profile</a> </li>
+              
+               <li> <a href="javascript:void(0)" onclick ="signout()"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Logout</a> </li>
+            </ul>
+         </li>
+                              
+                    
+                              
+                              
+                              
+                           </ul>
+                        </div>
+                     </header>
+                     <section>
+                        <section class="hbox stretch">
+                           <aside>
+                              <section class="vbox">
+                              
+                          <!--         <a href="javascript:void(0)" data-toggle="modal" class="btn btn-s-md btn-success btn-rounded"  data-target="#uploadModal" style="float:right;background-color:#4c5566;border:none;">
+                                       <b>
+                                          <div class="fa fa-upload"></div>
+                                          &nbsp;&nbsp;Add Files
+                                       </b>
+                                    </a>
+                                    
+                              -->  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                 <section class="scrollable wrapper">
+                               
+               <div style="margin-bottom:50px;"> 
+               
+               
+               <a href="javascript:void(0)" class="btn btn-default" style="float:right;" id="toGDivButton"><i class="fa fa-upload"></i>&nbsp;&nbsp; Upload File</a>                   
+                                    
+
+                                    
+                  </div>                   
+          
+          
+       
+                        <section class="panel">
+                           <div class="table-responsive">
+                              <table class="table table-striped m-b-none"  id="example">
+                                 <thead>
+                                    <tr>
+                                       <th width="20%">File Name</th>
+                                       <th width="25%">File Description</th>
+                                       <th width="15%">File Type</th>
+                                       <th width="20%">Uploaded On</th>
+                                       <th width="15%"></th>
+                                    </tr>
+                                 </thead>
+                                 <tbody id="fileListing"> 
+                                 
+                                    
+                                 
+                                 </tbody>
+                              </table>
+                           </div>
+                        </section>
+                
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+           <div class="copyright" style="position: fixed;
+    left: 0;
+ margin-left:6%;
+    bottom:0;
+    margin-bottom:-17px;">
+             
+             
+             
+             
+<div class="row bootstrap snippets" style="border: 1px solid #eaedef;display:none" id="box-body">
+
+ <div style="width:300px;">
+    <!-- DIRECT CHAT WARNING -->
+    <div class="box box-warning direct-chat direct-chat-warning">
+      <div class="box-header with-border">
+        <h3 class="box-title"><i class="fa fa-upload"></i>&nbsp;&nbsp;Upload File</h3>
+
+        <div class="box-tools pull-right">
+
+          <button type="button" class="btn btn-box-tool" id="toGDiv" ><i class="fa fa-times"></i>
+          </button>
+        
+        
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body" >
+        <!-- Conversations are loaded here -->
+        <div class="direct-chat-messages" style="overflow:hidden;">
+          
+		  
+		  
+		  
+		<form name="upload_frm" id="upload_frm" action="javascript:;" method="post" data-validate="parsley" enctype="multipart/form-data" accept-charset="utf-8">
+                     
+                     <div class="form-group pull-in clearfix">
+                        <div class="col-sm-12" > 
+                           <input type="text" name="attaname" id="attaname" class="form-control" maxlength="15" placeholder="File Name" required><br>
+                           <textarea name="attadesc" id="attadesc" class="form-control" placeholder="File Description" maxlength="25" required></textarea>
+                           <br>
+                           <input type="file" class="upload" name="file" id="file" class="form-control" required>
+                        </div>
+                        <div class="col-sm-12" >
+                          
+                              <button id="myUploadButton" Style="float:right; background-color:#f39c12;border:none;" type="submit" class="btn btn-default btn-sm " data-required="true">
+                              Upload</button>
+                      
+                           <br><br>
+                        </div>
+                        <br><br>
+                       
+                           <div   id="msgbox_upload" style="color:#f39c12;margin-left:20px;"> 
+                           </div>
+                  
+                     </div>
+                  </form>
+                  
+                  
+                  
+                  
+                  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+        </div>
+     
+
+      
+      </div>
+    
+    </div>
+   
+  </div>
+  
+  
+
+</div>            
+            
+            
+            </div><!-- .copyright -->
+          
+          
+          
+          
+          
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div id="DetailCasesBox" style="margin-top:50px;">
+                                    </div>
+                                 </section>
+                              </section>
+                           </aside>
+                        </section>
+                     </section>
+                  </section>
+               </aside>
+               <!-- /.aside --> 
+            </section>
+            <a href="javascript:void(0)" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> 
+         </section>
+         <!-- /.vbox --> 
+      </section>
+
+
+
+
+
+
+    		  
+   
+
+
+
+
+
+
+
+
+
+    <script src="js/bootstrap.js"></script> 
+      <script src="js/jquery.dataTables.min.js"></script>
+       <script src="js/bootstrap-dialog.min.js"></script>
+      <script type="text/javascript" src="js/Controllers/sideBarController.js"></script>
+      <script type="text/javascript" src="js/Controllers/libraryController.js"></script>
+   </body>
+</html>

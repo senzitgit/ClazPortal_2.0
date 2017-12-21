@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CyberClaz | Sign In</title>
+<link rel="stylesheet" href="css/login_style.css" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap_grid.css" type="text/css" />
+<script src="js/1.11.1/jquery.min.js"></script>
+<script src="js/Controllers/webServerService.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'/>
+<link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'/>
+<script src="js/Controllers/loginController.js"></script>
+
+<script>
+
+
+
+$( document ).ready(function() {
+	$('#username, #password').bind('keyup', function() {
+		
+	    if(allFilled()){
+	    	$('.fa').css('color', '#000');
+	    	
+	    }else{
+	    	
+	    	$('.fa').css('color', '#ccc');
+	    }
+	});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+function allFilled() {
+    var filled = true;
+    $('body input').each(function() {
+        if($(this).val() == '') filled = false;
+    });
+    return filled;
+}
+
+</script>
+
+
+
+
+
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="row" style="width:100%">
+<div class="col-sm-1"></div>
+<div class="col-sm-8"><img src="images/logo.png" style="height:50px;"/>
+</div>
+<div class="col-sm-1"><span class="menu_inactive"><br/>Sign In</span>
+</div>
+<div class="col-sm-1"><span class="menu_active"><br/>Sign Up</span>
+</div>
+</div>
+
+</div>
+
+<section class="login-form-wrap">
+  <img src="images/logo.png" style="height:80px;"/>
+  <h3 style="color:#424447;">Access Your CyberClaz Account</h3>
+  <form class="login-form" action="" id="login_frm" method="post" data-validate="parsley">
+    <label>
+      <input type="text" name="email" required placeholder="Username" id="username" />
+    </label>
+    <label>
+      <input type="password" name="password" required placeholder="Password" id="password"/>
+    </label>
+   <button  id="sign-in" aria-label="Sign In" tabindex="0" class="si-button btn "   aria-disabled="false">
+            <i class="fa fa-telegram" style="color:#ccc"></i>
+        </button>
+  </form>
+ <center> <h5 class="footer"><a href="#">Forgot &nbsp; CyberClaz&nbsp;  Password?</a></h5></center>
+ 
+ 
+ 
+ 
+ 
+</section>
+
+<center>
+<div id="msgbox" style="font-size:16px;"></div>
+
+
+</center>
+
+<script src="js/parsley/parsley.min.js"></script>
+      <script src="js/wizard/jquery.bootstrap.wizard.js"></script><script src="js/wizard/demo.js"></script> 
+
+</body>
+</html>

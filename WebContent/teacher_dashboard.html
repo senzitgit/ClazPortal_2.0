@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>CyberClaz | Teacher Dashboard</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <!-- CSS  -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
+      <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+      <link rel="stylesheet" href="js/google/jquery-ui.css">
+      <link rel="stylesheet" href="js/fullcalendar/fullcalendar.css" type="text/css" />
+      <link href='calender/fullcalendar.css' rel='stylesheet' />
+      <link href='calender/fullcalendar.print.css' rel='stylesheet' media='print' />
+      <link rel="stylesheet" href="js/fuelux/fuelux.css" type="text/css" />
+      <link rel="stylesheet" href="progress/css/rainbow.css">
+      <link rel="stylesheet" href="progress/css/progress.css">
+      <!-- JS -->
+      <script src="js/google/jquery.min.js"></script> 
+      <script src="js/google/jquery-ui.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/Chart.min.js"></script>
+      <script src='calender/lib/moment.min.js'></script>
+      <script src='calender/fullcalendar.min.js'></script>
+      <script src="js/Chart.StackedBar.js"></script>
+      <script type="text/javascript" src="js/jason_parser.js"></script>
+      <script type="text/javascript" src="js/google/jsapi.js"></script> 
+      <script type="text/javascript" src="progress/js/rainbow.min.js"></script>
+      <script type="text/javascript" src="progress/js/jquery-asPieProgress.js"></script>
+      <script type="text/javascript" src="js/Controllers/teacherGraphController.js"></script>
+   <body  onload="start_websocket()">
+      <section class="hbox stretch">
+         <aside class="bg-black dk aside-sm nav-vertical only-icon" id="nav">
+            <section class="vbox" >
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               <header class="dker nav-bar" > <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="javascript:void(0)" class="nav-brand" style=""><img src="images/login-logo.png"  id="proImg" style="width:60px;"></a> <a onclick ="signout()" class="btn btn-link visible-xs" > <i class="fa fa-power-off"></i> </a>  </header>
+               <footer class="footer lt hidden-xs text-center"> <a href="javascript:void(0)" onclick ="signout()"  class="btn btn-sm btn-link"> <i class="fa fa-power-off"></i> <br>Exit </a> </footer>
+               <section>
+                  <!-- user --> 
+                  <div class="lt nav-user hidden-xs pos-rlt" style="    margin-top: -50px;">
+                     <div class="nav-avatar pos-rlt" id="picturePanel">
+                     </div>
+                  </div>
+                  <!-- / user --> <!-- nav --> 
+                  <nav class="nav-primary hidden-xs">
+                     <ul class="nav" id="sideBar">
+                     </ul>
+                  </nav>
+                  <!-- / nav --> 
+               </section>
+            </section>
+         </aside>
+         <section id="content">
+            <section class="hbox stretch bg-white-only">
+               <!-- .aside --> 
+               <aside class="">
+                  <section class="vbox">
+                     
+                     
+                     
+                     
+                     
+<header class="header  navbar pull-in">
+   <div class="navbar-header nav-bar aside dk"> <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-primary"> <i class="fa fa-bars"></i> </a> <a href="#" class="nav-brand" data-toggle="fullscreen"><img src="images/logo.png" style="    max-height: 50px;"></a> <a class="btn btn-link visible-xs" data-toggle="collapse" data-target=".navbar-collapse"> <i class="fa fa-comment-o"></i> </a> </div>
+   <div class="collapse navbar-collapse" style="border-bottom:1px solid #e6e6e6">
+  
+      <ul class="nav navbar-nav navbar-right">
+         <li class="hidden-xs">
+            <a href="#" class="dropdown-toggle dk" data-toggle="dropdown"> <i class="fa fa-bell-o "></i> <span class="badge up bg-danger m-l-n-sm" id="notifyCount1"></span> </a> 
+            <section class="dropdown-menu animated fadeInUp input-s-lg">
+               <section class="panel bg-white scrollable" style="height:300px;" >
+                  <header class="panel-heading"> <strong>You have <span class="count-n" id="notifyCount2"></span> notifications</strong> </header>
+                
+                
+                <div id="notifications">
+                                       
+                                       
+                                       </div>
+                
+                
+                
+               </section>
+            </section>
+         </li>
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle  dker" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left m-t-n-xs m-r-xs" id="picturePanelNav"> </span> <span id="namePanelNav"></span> <b class="caret"></b> </a> 
+            <ul class="dropdown-menu animated fadeInLeft">
+         
+               <li> <a href="profile.html"><i class="fa fa-user"></i>&nbsp;&nbsp;Profile</a> </li>
+              
+               <li> <a href="javascript:void(0)" onclick ="signout()"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Logout</a> </li>
+            </ul>
+         </li>
+      </ul>
+   </div>
+</header>                     
+                     
+                     
+                     
+                     
+                     
+                     
+                      <section class="scrollable wrapper">
+                        <div class="row">
+                        <div class="col-lg-8">
+                          
+                          
+                           <h4 class=" text-muted" id="commentForm"></h4>
+      
+        <div class="line"></div> 
+                          
+                          
+                       
+                           
+                           
+                           
+                           <div class="row">
+                              <div class="col-lg-6 col-sm-6" style="margin-top:5%">
+                                 <section class="panel bg-info lter no-borders">
+                              <div class="panel-body">
+                                 <a class="pull-right" href="javascript:void(0)">
+                                 <i class="fa fa-map-marker"></i>&nbsp;&nbsp;<span id="curLoc"></span></a> 
+                                 <span class="h4">
+                                    <form name="dform">
+                                       <input type="text" name="currentdate" size=11 style="border:none; background: transparent;">
+                                    </form>
+                                 </span>
+                                 <div class="text-center padder m-t">
+                                    <span class="h1">
+                                       <form name="Tick"  style="font-size:25px;">
+                                          <div  class="fa fa-clock-o text-muted"></div>
+                                          &nbsp;&nbsp;<input type="text" size="11" name="Clock" style="border:none; background: transparent;">
+                                       </form>
+                                    </span>
+                                 </div>
+                              </div>
+                              <footer class="panel-footer lt">
+                                 <div class="row">
+                                     <div class="col-xs-3"> <small class="text-muted block">Humidity</small> <span id="humidity">00 %</span> </div>
+                                    <div class="col-xs-3"> <small class="text-muted block">Pressure</small> <span id="pressure">0.00 hpa</span> </div>
+                                    <div class="col-xs-3"> <small class="text-muted block">Temp.</small> <span id="temperature">00 C</span> </div>
+                                    <div class="col-xs-3"> <small class="text-muted block">Wind</small> <span id="wind">00 m/s</span> </div>
+                                  </div>
+                              </footer>
+                           </section>
+                           <section class="panel no-borders" style="height:100px;">
+                              <header class="panel-heading bg-success lter" >
+                                 <span  class="h4"  id="schedule_commets"></span><br> 
+                                 <span id="time_left"> </span>
+                                 <div class="text-center padder m-b-n-sm m-t-sm">
+                                    <span  style="font-size:25px;" class="h1"  id="current_time"></span> <br><br>
+                              </header>
+                           </section> 
+                              </div>
+                              <div class="col-lg-6 col-sm-6">
+                                 <section class="panel">
+                                    <div class="panel-body">
+                                       <div id="dateBar"></div>
+                                       <div id="dateHeader" style="display:none;"></div>
+                                       <div >
+                                          <div style="float:left;display:none;" id="headerDate"></div>
+                                          <div style="float:right;display:none;" id="calBack" >
+                                             <a href="javascript:void(0)">
+                                                <div class="fa fa-chevron-left"></div>
+                                                <div class="fa fa-chevron-left"></div>
+                                                Back
+                                             </a>
+                                          </div>
+                                       </div>
+                                       <div id="calendar" style="display:block;overflow:hidden;"></div>
+                                       <div class="scrollable wrapper" id="schedules" style="display:none;height:280px; width:100%;margin-top:50px;" ></div>
+                                    </div>
+                                 </section>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-12 col-sm-12">
+                                 <section class="panel">
+                                    <header class="panel-heading">Target Analysis : Maximum Hours
+                                    </header>
+                                    <div class="panel-body" style="background-color: #5cbfab;">
+                                       <img src="images/teacher/teacher_3.png" class="monthAttaRep">
+                                    </div>
+                                 </section>
+                              </div>
+                              <div class="col-lg-6 col-sm-6">
+                                 <section class="panel">
+                                    <header class="panel-heading">Target Analysis : Attendance Percentage
+                                    </header>
+                                    <div class="panel-body" style="background-color: #5cbfab;">
+                                      <img src="images/teacher/teacher_2.jpg" class="monthAttaRep">
+                                    </div>
+                                 </section>
+                              </div>
+                              
+                                <div class="col-lg-6 col-sm-6">
+                                 <section class="panel">
+                                    <header class="panel-heading">Student's Rating on Teachers
+                                    </header>
+                                    <div class="panel-body" style="background-color: #5cbfab;">
+                                                  <img src="images/teacher/teacher_2.jpg" class="monthAttaRep">
+                                    </div>
+                                 </section>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-4">
+                        
+                        
+                        
+                        
+                        <section class="panel">
+                                    <header class="panel-heading">  Your Class Details
+                                    </header>
+                                    <div class="panel-body">
+                                       <div id="current"></div>
+                                       <div id="later"></div>
+                                    </div>
+                                 </section>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                          
+                      <!--     <section class="panel" style="background-image:url(images/analytics.jpg); "> 
+                           <div class="panel-body">
+                           <center>
+                           <img src="images/logo.png" width="200px" >
+                           <h4>Analytical Reports</h4>
+                           </center>
+                           <a href="teacher_analytical_reports.html" ><img src="images/iconAnalytics.png" height="80px" style="float:right;margin-right:30px;margin-top:10px;"></a><br><br><br>
+                           </div> 
+                           </section> -->
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           <section class="panel"> 
+                           <section class="panel"> 
+                           <div class="panel-body"> 
+                           <div class="clearfix m-b"> 
+                           <small class="text-muted pull-right">10/02/2015</small> 
+                           <a href="javascript:void(0)" class="thumb-sm pull-left m-r"> 
+                           <img src="images/avatar.jpg" class="img-circle"> </a> 
+                           <div class="clear"> <a href="javascript:void(0)"><strong>Top Session Of The Week</strong></a> 
+                           <small class="block text-muted">Engg. Mathematics, Integration</small> </div> </div> 
+                           <a href="javascript:void(0)"><img src="images/play_video.jpg" style="width:100%"></a>
+                           <small class=""><br><br> <a href="javascript:void(0)"><i class="fa fa-comment-o"></i> Comments (25)</a> </small> </div> 
+                           <footer class="panel-footer pos-rlt"> <span class="arrow top"></span> <form class="pull-out"> <input type="text" class="form-control no-border input-lg text-sm" placeholder="Write a comment..."> </form> </footer> </section> 
+                           </section> 
+                           </div>    
+                        </div>
+                     </section>
+                  </section>
+               </aside>
+               <!-- /.aside --> 
+            </section>
+            <a href="javascript:void(0)" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> 
+         </section>
+         <!-- /.vbox --> 
+      </section>
+      <div class="modal fade" id="attendClassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" 
+                     data-dismiss="modal" aria-hidden="true">
+                  &times;
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">
+                     A Class Session Is Going On..
+                  </h4>
+               </div>
+               <div class="modal-body" id="modalAttendBoday">
+               </div>
+               <div class="modal-footer">
+                  <div style="float:left;">
+                     <h5>Do you want to attend??</h5>
+                  </div>
+                  <button type="button" class="btn btn-default" 
+                     data-dismiss="modal">No
+                  </button>
+                  <button type="button" Style="border:none;background-color:#5BBFAB" class="btn btn-primary" id="attendClassButton" onclick="attendClass()" >
+                  Yes
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="noClassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-body" id="modalAttendBoday">
+                  <br><br>
+                  <center>
+                     <div class="fa fa-warning" style="font-size:100px;"></div>
+                     <br>
+                     <div style="font-size:20px;" >Your class is not scheduled @ this time!!<br>Do you want to start manually??</div>
+                  </center>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" 
+                     data-dismiss="modal">No
+                  </button>
+                  <button type="button" class="btn btn-primary" Style="border:none;background-color:#5BBFAB" onclick="startManually()"
+                     >Yes
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" style="overflow: hidden;"   id="replyModal" tabindex="-1" role="dialog" 
+         aria-labelledby="myModalLabel" aria-hidden="true">
+         <br><br><br><br>
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div id="codeBox" style="display:block;">
+                  <div class="modal-header">
+                     <h4 class="modal-title" id="myModalLabel2">
+                        <img src="images/logo.png" width="200px;">    
+                     </h4>
+                  </div>
+                  <div class="modal-body">
+                     <div class="col-lg-12">
+                        <div id="studentPanel1"></div>
+                        <br><br>
+                        <div class="form-group"> 
+                           <input type="text" class="form-control" placeholder="Enter Answer" id="notifAnswer" name="notifAnswer">
+                           <input type="hidden" class="form-control" id="notifId" name="notifId">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <div id="statusBar" style="float:left"></div>
+                     <button type="submit" Style="border:none;background-color:#4c5566" class="btn btn-primary" data-dismiss="modal" onclick="loadProfile()">
+                     Cancel
+                     </button>
+                     <button type="submit" Style="border:none;background-color:#5BBFAB" class="btn btn-primary" id="answerzButtonNotify" >
+                     Answer
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal --> 
+      </div>
+      <a href="javascript:void(0)" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+      <script type="text/javascript" src="js/Controllers/webServerService.js"></script> 
+      <script type="text/javascript" src="js/Controllers/sideBarController.js"></script>
+      <script type="text/javascript" src="js/Controllers/teacherDashboardController.js"></script>
+      <script type="text/javascript" src="js/teacher_getTime_result.js"></script>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+   <!--    <div >
+      
+      
+        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" style="position: fixed;
+   
+   right:0;
+    bottom: 0;
+    height: 20px;background-color:#fff"> 
+                                 <i class="fa fa-bell-o"></i> 
+                                 <span class="badge up bg-success m-l-n-sm" id="notifyCount1">2</span> </a> 
+                                 <section class="dropdown-menu animated fadeInUp input-s-lg">
+                                    <section class="panel bg-white scrollable wrapper" >
+                                       <header class="panel-heading" > <strong>You have <span class="count-n" id="notifyCount2"></span> notifications</strong> </header>
+                                       <div id="notifications">
+                                       </div>
+                                    </section>
+                                 </section>
+      
+      </div> -->
+      
+      
+      
+      
+      
+      
+      
+   </body>
+</html>

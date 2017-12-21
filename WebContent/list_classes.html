@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>CyberClaz | List Classes</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <!-- CSS  -->
+      <link rel="stylesheet" href="css/app.v2.css" type="text/css" /> 
+      <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+   
+
+    <!-- JS -->
+    <script src="popup/jquery.js"></script>
+      <script src="js/google/jquery-ui.js"></script>
+      
+    
+   
+
+
+<style>
+.caret{
+display:none;
+}
+#example_filter{
+
+margin-top:-50px;
+
+}
+</style>
+
+
+
+
+
+   </head>
+   <body>
+      <section class="hbox stretch">
+         <!-- .aside --> 
+         <aside class="bg-black dk aside-sm nav-vertical only-icon" id="nav">
+            <section class="vbox" >
+               <header class="dker nav-bar" > <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="javascript:void(0)" class="nav-brand" style=""><img src="images/login-logo.png"  id="proImg" style="width:60px;"></a> <a onclick ="signout()" class="btn btn-link visible-xs" > <i class="fa fa-power-off"></i> </a>  </header>
+               <footer class="footer lt hidden-xs text-center"> <a href="javascript:void(0)" onclick ="signout()"  class="btn btn-sm btn-link"> <i class="fa fa-power-off"></i> <br>Exit </a> </footer>
+               <section>
+                  <!-- user --> 
+                  <div class="lt nav-user hidden-xs pos-rlt" style="    margin-top: -50px;">
+                     <div class="nav-avatar pos-rlt" id="picturePanel">
+                     </div>
+                  </div>
+                  <!-- / user --> <!-- nav --> 
+                  <nav class="nav-primary hidden-xs">
+                     <ul class="nav" id="sideBar">
+                     </ul>
+                  </nav>
+                  <!-- / nav --> 
+               </section>
+            </section>
+         </aside>
+         <!-- .vbox --> 
+         <section id="content">
+            <section class="hbox stretch bg-white-only">
+               <!-- .aside --> 
+               <aside class="">
+                  <section class="vbox">
+           <header class="header  navbar pull-in">
+   <div class="navbar-header nav-bar aside dk"> <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-primary"> <i class="fa fa-bars"></i> </a> <a href="#" class="nav-brand" data-toggle="fullscreen"><img src="images/logo.png" style="    max-height: 50px;"></a> <a class="btn btn-link visible-xs" data-toggle="collapse" data-target=".navbar-collapse"> <i class="fa fa-comment-o"></i> </a> </div>
+   <div class="collapse navbar-collapse" style="border-bottom:1px solid #e6e6e6">
+  
+      <ul class="nav navbar-nav navbar-right">
+        
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle  dker" > <span class="thumb-sm avatar pull-left m-t-n-xs m-r-xs" id="picturePanelNav"> </span> <span id="namePanelNav"></span>  </a> 
+            
+         </li>
+      </ul>
+   </div>
+</header> 
+                     <section>
+                        <section class="hbox stretch">
+                           <aside>
+                              <section class="vbox">
+                              
+                                
+                              
+                              
+                              
+                              
+                              
+                                 <section class="scrollable wrapper">
+                               
+
+          
+     <div class="modal-body" id="modalAttendBoday">
+               </div>
+
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                 </section>
+                              </section>
+                           </aside>
+                        </section>
+                     </section>
+                  </section>
+               </aside>
+               <!-- /.aside --> 
+            </section>
+            <a href="javascript:void(0)" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> 
+         </section>
+         <!-- /.vbox --> 
+      </section>
+
+
+
+              
+
+    		  
+   
+
+
+
+
+
+
+
+
+
+    <script src="js/bootstrap.js"></script> 
+      <script src="js/jquery.dataTables.min.js"></script>
+       <script src="js/bootstrap-dialog.min.js"></script>
+        <script type="text/javascript" src="js/Controllers/managerDashboardController.js"></script>
+      <script type="text/javascript" src="js/Controllers/sideBarController_manager.js"></script>
+            <script type="text/javascript" src="js/Controllers/manager_list_class.js"></script>
+
+   </body>
+</html>

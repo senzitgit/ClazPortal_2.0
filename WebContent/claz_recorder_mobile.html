@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>CyberClaz | Claz Recorder</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <!-- CSS  -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
+      <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+      <link rel="stylesheet" href="js/fuelux/fuelux.css" type="text/css" />
+      <link rel="stylesheet" href="ui_drag/jquery-ui.css">
+      <!-- JS -->
+      <script src="popup/jquery.js"></script>
+      <script src="drawImage/jquery.jqscribble.js" type="text/javascript"></script>
+      <script src="drawImage/jqscribble.extrabrushes.js" type="text/javascript"></script>
+      <script src="ui_drag/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/jason_parser.js"></script>
+      <script type="text/javascript" src="jwplayer/jwplayer.js" ></script>
+      <script type="text/javascript">jwplayer.key="J0+IRhB3+LyO0fw2I+2qT2Df8HVdPabwmJVeDWFFoplmVxFF5uw6ZlnPNXo=";</script>
+      <!-- POPUP -->
+      <link rel="stylesheet" type="text/css" href="popup/jquery.fancybox.css" />
+      <link rel="stylesheet" type="text/css" href="popup/jquery.fancybox-buttons.css" />
+      <style type="text/css">
+         #wrap {width: 100%;}
+         a {outline: 0 none;}
+         @-webkit-keyframes pulse-border {
+         from, to { box-shadow: 0 0 0 0 #FF6666;}
+         50% { box-shadow: 0 0 0 4px #FF6666; }
+         }
+      </style>
+      <style>
+         #draggable { width: 205px; margin-top:-10px; padding: 0.5em; background-image: url("images/drag-n-drop-ui.png"); background-repeat: no-repeat;background-position: right top;background-color:none; }
+      </style>
+      <script type="text/javascript" src="popup/jquery.fancybox.js"></script>
+      <script src="js/Controllers/webServerService.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/bootbox.min.js"></script>
+   </head>
+   <body onload="start_websocket()" >
+      <section class="hbox stretch">
+        <aside class="bg-black dk aside-sm nav-vertical only-icon" id="nav">
+            <section class="vbox" >
+               <header class="dker nav-bar" > <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="javascript:void(0)" class="nav-brand" style=""><img src="images/login-logo.png"  id="proImg" style="width:60px;"></a> <a onclick ="signout()" class="btn btn-link visible-xs" > <i class="fa fa-power-off"></i> </a>  </header>
+               <footer class="footer lt hidden-xs text-center"> <a href="javascript:void(0)" onclick ="signout()"  class="btn btn-sm btn-link"> <i class="fa fa-power-off"></i> <br>Exit </a> </footer>
+               <section>
+                  <!-- user --> 
+                  <div class="lt nav-user hidden-xs pos-rlt" style="    margin-top: -50px;">
+                     <div class="nav-avatar pos-rlt" id="picturePanel">
+                     </div>
+                  </div>
+                  <!-- / user --> <!-- nav --> 
+                  <nav class="nav-primary hidden-xs">
+                     <ul class="nav" id="sideBar">
+                     </ul>
+                  </nav>
+                  <!-- / nav --> 
+               </section>
+            </section>
+         </aside>
+         <section id="content">
+            <section class="hbox stretch bg-white-only">
+               <!-- .aside --> 
+               <aside class="">
+                  <section class="vbox">
+                     <header class="header bg-white pos-rlt navbar navbar-default show" Style="border-bottom:1px solid #F2F2F2;">
+                        <span class="arrow left" style="border-right-color:#fff"></span> 
+                        <div class="collapse navbar-collapse pull-in">
+                           <img src="images/logo.png" height="50px">
+                           <ul class="nav navbar-nav navbar-right">
+                                  <li class="hidden-xs">
+                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                                    <form name="Tick">
+                                       <b>
+                                          <div  class="fa fa-clock-o text-muted" style="font-size:20px;"></div>
+                                          &nbsp;&nbsp;<input type="text" size="11" name="Clock" style="font-size:15px;border:none; background: transparent;" readonly>
+                                       </b>
+                                    </form>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </header>
+                     <section class="scrollable wrapper">
+                     
+                     
+                     
+                        <div class="col-lg-4" >
+                              <!-- .breadcrumb --> 
+                              <div class="breadcrumb" >
+                                 <div class="row">
+                                    <div id ="infoBar" style="display:block">
+                                    
+                                    
+                                        <div class="col-lg-4" >
+                                          <table>
+                                             <tr>
+                                                <th style="width:90px"></th>
+                                                <th></th>
+                                                <th></th>
+                                             </tr>
+                                             <tr  style="line-height:20px;">
+                                                <td>Subject</td>
+                                                <td>:</td>
+                                                <td  style="margin-bottom:10px;"><span class="label bg-primary" Style="background-color:#5BBFAB;color:#fff;" id="Chapter"></span></td>
+                                             </tr>
+                                             <tr style="line-height:20px;">
+                                                <td>Topic</td>
+                                                <td>:</td>
+                                                <td><span class="label bg-primary" Style="background-color:#5BBFAB;color:#fff;" id="Topic"></span></td>
+                                             </tr>
+                                             <tr style="line-height:20px;">
+                                                <td>Chapter</td>
+                                                <td>:</td>
+                                                <td><span class="label bg-primary" Style="background-color:#5BBFAB;color:#fff;" id="Teacher"></span></td>
+                                             </tr>
+                                             
+                                          </table>
+                                       </div>
+                                    
+                                    
+                                     <div class="col-lg-2" style="width:20%;" id="ib4">
+                                          <div style="float:right;" id="stopButton"><a href="javascript:void(0)"><img src="images/stop_button.png" height="35px" ></a>		</div>
+                                       </div>
+                                    </div>
+                                    <div id ="confirmBar" style="display:none">
+                                       <div style="margin-left:20px;  width:100%">
+                                          <div class="fa fa-warning" style="font-size:20px;margin-top:7px;"></div>
+                                          &nbsp;&nbsp;&nbsp;Are you sure want to stop this class??<br><br>
+                                          <a href="javascript:void(0)" class="btn btn-rounded btn-sm btn-white" id="exitNo" style="float:right; margin-right:50px;">No</a>													
+                                          <a href="javascript:void(0)" class="btn btn-rounded btn-sm btn-danger" id="exitYes" style="float:right;margin-right:20px;">Yes</a>
+                                       </div>
+                                    </div>
+                                    <div id ="endBar" style="display:none">
+                                       <div style="margin-left:20px;  width:100%"></div>
+                                       &nbsp;&nbsp;&nbsp;The Class Has Ended. You will be re-directed to the Dashboard now.. 
+                                       <img src="images/loading.gif" height="50px;" style="float:right">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                     
+                     
+                          <div class="col-lg-8" Style="margin-left:80px;width:50%" id="recFeed1">
+                           <section class="panel" id="progressbar">
+                              <header class="panel-heading">
+                                 <ul class="nav nav-pills pull-right">  </ul>
+                                 Feed 1
+                                 <div  id="mutebtn2" onClick='mutevlc2();'>
+                                    <div id="target2"  class="fa fa-volume-up"  style="font-size:20px; float:right;margin-top:-20px;">
+                                    </div>
+                                 </div>
+                              </header>
+                              <div id="liveVid2">
+                                 <img src="images/poster0.jpg" style="width:100%">
+                              </div>
+                              <div id="liveAud2"></div>
+                           </section>
+                     
+                        
+                           <!-- / .breadcrumb --> 
+                        </div>
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                        <div class="col-lg-4" Style="margin-left:80px; height:200px;" id="feed2Resp">
+                           <section class="panel" id="progressbar">
+                              <header class="panel-heading">
+                                 <ul class="nav nav-pills pull-right">  </ul>
+                                 Feed 2
+                                 <div  id="mutebtn1" onClick='mutevlc1();'>
+                                    <div id="target1"  class="fa fa-volume-up"  style="font-size:20px; float:right;margin-top:-20px;">
+                                    </div>
+                                 </div>
+                              </header>
+                              <div id="liveVid1">
+                                 <img src="images/poster0.jpg" style="width:100%">		
+                              </div>
+                              <div id="liveAud1"></div>
+                           </section>
+                           <footer  class="panel-footer bg-light lter" Style="font-size:11px; border:none; margin-top:-20px; margin-bottom:-15px; margin-left:-20px;background-color: #fff; height:50px;" >
+                              <ul class="nav nav-pills" >
+                                 <table>
+                                    <li   style="float:right; font-size:9px;">
+                                       <a href="javascript:void(0)" id="logButton">
+                                          <center><i class="fa fa-list"></i><span style="font-size:9px;"><br><b>Logs</b></span></center>
+                                       </a>
+                                    </li>
+                                    <li  style="float:right; font-size:9px;">
+                                       <a href="javascript:void(0)" id="clazNoteButton">
+                                          <center><i class="fa fa-file"></i><span style="font-size:9px;"><br><b>Notes</b></span></center>
+                                       </a>
+                                    </li>
+                                    <li   style="float:right; font-size:9px;">
+                                       <a href="javascript:void(0)" id="attachmentButton">
+                                          <center><i class="fa fa-paperclip"></i><span style="font-size:9px;"><br><b>Attachments</b></span></center>
+                                       </a>
+                                    </li>
+                                    <li   style="float:right; font-size:9px;">
+                                       <a href="javascript:void(0)" id="raiseButton">
+                                          <center><i class="fa fa-hand-o-up"></i><span style="font-size:9px;"><br><b>Raise Hand</b></span> </center>
+                                       </a>
+                                    </li>
+                                 </table>
+                              </ul>
+                           </footer>
+                           <div style="display:block" id="logArea">
+                              <br><br><br>
+                              <br>
+                              <section class="content scrollable" Style="height: 220px; font-size:9px;">
+                                 <div class="list-group alt" id="addLogs"> 
+                                 </div>
+                              </section>
+                           </div>
+                           <div style=" display:none" id="attachmentArea">
+                              <br><br><br><br>
+                              <!--    <a href="javascript:void(0)" data-target="#myModal" data-toggle="modal">
+                                 <span   class="badge bg-info" style="margin-top:-10px;background-color:#aeb6cb;float:right;color:#000">
+                                     
+                                        <div class="fa fa-pencil"></div>&nbsp;&nbsp; Share Custom Attachment
+                                    
+                                  </span> </a>
+                                 
+                                 <br>           <br> -->
+                              <section class="content scrollable" Style="height: 220px; font-size:9px;">
+                                 <ul class="list-group alt" id="addAttach" Style="margin-right:10px;"> 
+                                 </ul>
+                              </section>
+                           </div>
+                           <div style="display:none" id="noteArea" >
+                              <br><br>  <br><br> 
+                              <section class="content">
+                                 <br>
+                                 <article class="chat-item" id="chat-form">
+                                    <a class="pull-left thumb-sm avatar" id="notzPic"></a> 
+                                    <section class="chat-body">
+                                       <form method="post" onsubmit="return false" class="m-b-none">
+                                          <div class="input-group"> 
+                                             <input type="text" class="form-control" placeholder="Enter Notes.." id="notes"> 
+                                             <span class="input-group-btn"> 
+                                             <button class="btn btn-success" type="button" id="notzButton">ADD</button> 
+                                             </span> 
+                                          </div>
+                                       </form>
+                                    </section>
+                                 </article>
+                              </section>
+                              <section class="content scrollable" Style="height: 170px; font-size:9px;">
+                                 <div class="list-group alt" Style="margin-right:10px;margin-left:10px;">
+                                    <br>
+                                    <div id="classNotes">
+                                    </div>
+                                 </div>
+                              </section>
+                           </div>
+                           <div style=" display:none" id="raiseArea">
+                              <br><br><br><br>
+                              <section class="content scrollable" Style="height: 220px; font-size:9px;">
+                                 <ul class="list-group alt" id="raiseHandDoubts" Style="margin-right:10px;"> 
+                                 </ul>
+                              </section>
+                           </div>
+                        </div>
+                   
+                        <input type="hidden" value="Pause" id="butn"  onClick="changestat()"/> 
+                        <input type="hidden" value="00 : 00 : 00" id="stwa" Style="border:none; font-size:20px; margin-top:10px;" readonly> 						 
+                     </section>
+                  </section>
+               </aside>
+               <!-- /.aside --> 
+            </section>
+            <a href="javascript:void(0)" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> 
+         </section>
+         <!-- /.vbox --> 
+      </section>
+      <div class="modal fade" data-backdrop="static"  id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+         <div class="modal-dialog modal-sm">
+            <center>
+               <div Style="width:400px;">
+                  <div class="fa fa-warning" Style="font-size:200px;color:white;margin-top:100px;"></div>
+                  <br>
+                  <div Style="font-size:25px;color:white;">You Are In Attention Mode !!!</div>
+               </div>
+            </center>
+         </div>
+      </div>
+      <div class="modal fade" style="overflow: hidden;"   id="replyModal" tabindex="-1" role="dialog" 
+         aria-labelledby="myModalLabel" aria-hidden="true">
+         <br><br><br><br>
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div id="codeBox" style="display:block;">
+                  <div class="modal-header">
+                     <h4 class="modal-title" id="myModalLabel2">
+                        <img src="images/logo.png" width="200px;">    
+                     </h4>
+                  </div>
+                  <div class="modal-body">
+                     <div class="col-lg-4" id="studentPanel1">
+                     </div>
+                     <div class="col-lg-8"  id="doubtPanel1">
+                     </div>
+                     <br>
+                     <div class="form-group"> 
+                        <input type="text" class="form-control" placeholder="Enter Answer" id="raiseAns1" name="raiseAns1"> 
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="submit" Style="border:none;background-color:#5BBFAB" class="btn btn-primary" id="answerzButtonQueue" >
+                     Answer
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal --> 
+      </div>
+      <div style="margin-top:130px;" data-backdrop="static" class="modal fade" id="stopModal" tabindex="-1" role="dialog" 
+         aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" 
+                     data-dismiss="modal" aria-hidden="true">
+                  &times;
+                  </button>
+                  <br>
+                  <div style="float:right;" ><img src="images/logo.png" Style="height:40px" alt="scale"></div>
+                  <br><br>
+               </div>
+               <div class="modal-body">
+                  <div id="liveClazModalBody">
+                     <center>
+                        <div class="glyphicon glyphicon-saved" style="font-size:50px;"></div>
+                        <h4>The Class Session Saved Successfully!!!</h4>
+                     </center>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <div style="float:left;"> 
+                  </div>
+                  <button type="button" Style="border:none;background-color:#5BBFAB" class="btn btn-primary" onclick="uploadFeed()"  id="startClassButton">
+                  OK
+                  </button>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal --> 
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+         
+       <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h4 class="modal-title">Create Custom Attachment</h4>
+        </div>
+        <div class="modal-body">
+         
+         
+         <div style="overflow: hidden; margin-bottom: 5px;">
+
+			
+		</div>
+	
+		 <canvas id="test" style="border: 1px solid red;"></canvas>
+		
+		
+			 <div class="col-lg-2" style="float:right">
+			 
+			 <strong>COLORS</strong><br><br>
+				<a href="#" onclick='$("#test").data("jqScribble").update({brushColor: "rgb(0,0,0)"});'><img src="images/black.png" height="50px"></a>
+				<a href="#" onclick='$("#test").data("jqScribble").update({brushColor: "rgb(255,0,0)"});'><img src="images/red.png" height="50px"></a>
+				<a href="#" onclick='$("#test").data("jqScribble").update({brushColor: "rgb(0,255,0)"});'><img src="images/green.png" height="50px"></a>
+				<a href="#" onclick='$("#test").data("jqScribble").update({brushColor: "rgb(0,0,255)"});'><img src="images/blue.png" height="50px"></a>
+			</div>
+			
+			
+			
+			
+			 <div class="col-lg-3" style="float:right">
+			<center> <br><br>
+<!-- 		        <a href="#" onclick='$("#file").trigger("click");'><img src="images/insert_image.png" height="50px"><br><b>Insert Image</b></a> -->
+			<br><br><br><br>
+				<a href="#" onclick='$("#test").data("jqScribble").clear();'><img src="images/eraser.png" height="50px"><br><b>Clear</b></a>
+				</center>
+				
+			 
+			 </div>
+		
+		
+		
+		
+	
+		<script type="text/javascript">
+		
+		
+		function modalClose(){
+			
+			$("#test").data("jqScribble").clear();
+			$('#myModal').modal('hide');
+			
+			
+		}
+	
+		function addImage()
+		{
+			var img = prompt("Enter the URL of the image.");
+			if(img !== '')$("#test").data("jqScribble").update({backgroundImage: img});
+		}
+		
+		</script>
+         
+         
+                                            
+                                                  <br><br>
+                                                  
+                                                  
+                                                   <div class="form-group">
+                                                      <label class="col-lg-3 control-label">Image Name : </label> 
+                                                      <div class="col-lg-9"> 
+                                                         <input  type="text" id="customAttachName" class="form-control" placeholder="Enter Image Name" data-rangelength="[4,30]"  data-required="true">
+                                                        
+                                                      </div>
+                                                   </div>
+                                                
+                                             
+         
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" onclick='modalClose();' style="float:left"><div class="fa fa-times"></div>&nbsp;&nbsp;Close</button>
+                    <button type="button" class="btn btn-success"  style="float:right" onclick='save();' ><div class="fa fa-share-square-o"></div>&nbsp;&nbsp;Share</button>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+      
+      
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <a href="javascript:void(0)" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> 
+      <script src="js/Controllers/webServerService.js"></script>
+      <script type="text/javascript" src="js/Controllers/sideBarController_disabled.js"></script>
+      <script type="text/javascript" src="js/Controllers/recordController_mobile.js"></script>
+      <script type="text/javascript" src="js/Controllers/raiseHandController.js"></script>
+      <script type="text/javascript" src="js/Controllers/liveFeedController.js"></script>
+      
+      
+      	   <div class="copyright" style="position: fixed;
+    left: 10%;
+   right:10%;
+    bottom: 0;
+    height: 40px;background:#fff;text-align:center;">
+       <ul class="nav navbar-nav ">
+       
+       
+<!--   <a href="javascript:void(0)" data-target="#myModal" data-toggle="modal" style="padding:7px" ><b><i  class="fa fa-crop"></i> <span  style="font-size:8px;">  Draw Attachment</span></b></a>
+ --> 
+         
+<a href="javascript:void(0)" id="switchButton" style="padding:7px;float:left"><b><i id="switchfa" class="fa fa-exchange"></i> <span id="switchtxt" style="font-size:8px;">  Switch Video</span></b></a>
+       
+         
+         
+<a href="javascript:void(0)" id="attentionButton" style="padding:7px;float:right"><b><i id="attentionfa"  class="fa fa-warning"></i> <span id="attentiontxt" style="font-size:8px;">  Attention Mode</span></b></a>
+       
+            </ul>
+       
+    
+   
+       
+       
+       
+       
+                             
+                      
+            </div><!-- .copyright -->
+   </body>
+</html>

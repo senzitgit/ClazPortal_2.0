@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>CyberClaz | Manager's Area</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+     
+     	 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">	
+     
+     
+      <!-- CSS  -->
+      <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
+      <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+      <link rel="stylesheet" href="js/fuelux/fuelux.css" type="text/css" />
+      <!-- JS -->
+      <script src="js/google/jquery.min.js"></script> 
+      <script src="js/google/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/jason_parser.js"></script>
+      <script src="js/Controllers/webServerService.js"></script>
+      <style>
+      
+            .caret{
+display:none;
+}
+      </style>
+   </head>
+   <body>
+      <section class="hbox stretch">
+         <aside class="bg-black dk aside-sm nav-vertical only-icon" id="nav">
+            <section class="vbox" id="headerSideBar">
+               <footer class="footer lt hidden-xs text-center"> <a href="javascript:void(0)" onclick ="signout()"  class="btn btn-sm btn-link"> <i class="fa fa-power-off"></i> <br>Exit </a> </footer>
+               <section>
+                  <div class="lt nav-user hidden-xs pos-rlt">
+                     <div class="nav-avatar pos-rlt">
+                        <div id="picturePanel"></div>
+                     </div>
+                  </div>
+                  <!-- / user --> 
+                  <!-- nav --> 
+                  <nav class="nav-primary hidden-xs">
+                     <ul class="nav" id="sideBar">
+                     
+                       
+                 
+                     
+                     </ul>
+                  </nav>
+                  <!-- / nav --> 
+               </section>
+            </section>
+         </aside>
+         <!-- .vbox --> 
+         <section id="content">
+            <section class="hbox stretch bg-white-only">
+               <!-- .aside --> 
+               <aside class="">
+                  <section class="vbox">
+                            <header class="header  navbar pull-in">
+   <div class="navbar-header nav-bar aside dk"> <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-primary"> <i class="fa fa-bars"></i> </a> <a href="#" class="nav-brand" data-toggle="fullscreen"><img src="images/logo.png" style="    max-height: 50px;"></a> <a class="btn btn-link visible-xs" data-toggle="collapse" data-target=".navbar-collapse"> <i class="fa fa-comment-o"></i> </a> </div>
+   <div class="collapse navbar-collapse" style="border-bottom:1px solid #e6e6e6">
+  
+      <ul class="nav navbar-nav navbar-right">
+        
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle  dker" > <span class="thumb-sm avatar pull-left m-t-n-xs m-r-xs" id="picturePanelNav"> </span> <span id="namePanelNav"></span>  </a> 
+            
+         </li>
+      </ul>
+   </div>
+</header> 
+                     <section>
+                        <section class="hbox stretch">
+                           <aside>
+                              <section class="vbox">
+                                 <section class="scrollable wrapper">
+                                    <div class="row">
+                                       <div class="col-lg-2">
+                                          <center>
+                              
+                              
+                                                               <a href="javascript:void(0)" id="targetAttdSubmit">
+                               <img src="images/crowd.png" height="50px;"><br>
+                                 <b>Target Attendance Percentage</b></a><br><br>
+                                 <a href="javascript:void(0)" id="passPercentSubmit">
+                                 <img src="images/pass_per.png" height="50px;"><br>
+                                 <b>Target Pass Percentage</b></a><br><br>
+                                 <a href="javascript:void(0)" id="goalSubmit">
+                                 <img src="images/future_goal.png" height="50px;"><br>
+                                 <b>Future Goals</b></a><br><br>
+                                 
+                                          </center>
+                                       </div>
+                                       <div class="col-lg-10">
+                                         
+                                         
+                                         <div class="alert alert-danger" id="failAlert" style="display:none"> <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button> <i class="fa fa-ban-circle"></i><strong>Oopsss!!!</strong> Something wrong has happend, try submitting again. </div>
+                                         
+                                         <div class="alert alert-success" id="successAlert" style="display:none"> <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button> <i class="fa fa-check-sign"></i><strong>Success!!! </strong><span id="customMessage"></span></div>
+                                         
+                                         
+                                         <div style="display:block" id="intro">
+<center>
+
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><div class="fa fa-refresh"></div><br>
+Select an option from left to start!!!
+</center>
+
+
+
+</div>
+                                         
+                                         
+                                            <div id="target_attdDiv" style="display:none;">
+                                 <section class="panel">
+                                    <header class="panel-heading" style="height:80px;"> 
+                                       <span class="label pull-right"><img src="images/logo.png" height="50px;"></span> <br>
+                                      <h4>Enter Target Attentance Percentage</h4> 
+                                    </header>
+                                    <form class="bs-example form-horizontal"  id="target_form" method="post" action="#" style="margin:30px 50px 30px 50px;" data-validate="parsley">
+                                       <div class="form-group">
+                                          <label class="col-lg-2 control-label">Select Teacher Name</label> 
+                                          <div class="col-lg-10"> <select id="attd_Teacher_Name"  class="form-control" placeholder="Select  Teacher Name"  data-required="true"></select> </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <label class="col-lg-2 control-label">Select Class Name</label> 
+                                          <div class="col-lg-10">
+                                             <select id="attd_Class_Name"  class="form-control" placeholder="Select Class Name"  data-required="true">
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <label class="col-lg-2 control-label"> Enter attendance Percentage</label> 
+                                          <div class="col-lg-10"> 
+                                             <input type="number" id="target_percentage" min="0" max="100" class="form-control" placeholder="Enter attendance Percentage"  data-required="true"> 
+                                          </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <div class="col-lg-offset-2 col-lg-10"> <button id="targetAttdSubmit" type="submit" class="btn btn-sm btn-success">Submit</button> 
+                                    
+                                    </div>
+                                    </div>
+                                    </form>
+                                    <div>
+                                    
+                                    </div>
+                                 </section>
+                              </div>
+                                         
+                                         
+                                         
+                                         
+                                         
+                                         
+                                         
+                                   <div id="target_passDiv" style="display:none;">
+                                 <section class="panel">
+                                    <header class="panel-heading" style="height:80px;"> 
+                                       <span class="label pull-right"><img src="images/logo.png" height="50px;"></span> <br>
+                                       Target Pass Percentage
+                                    </header>
+                                    <form class="bs-example form-horizontal"  id="pass_form" method="post" action="#" style="margin:30px 50px 30px 50px;" data-validate="parsley">
+                                       <div class="form-group">
+                                          <label class="col-lg-2 control-label">Select Teacher Name</label> 
+                                          <div class="col-lg-10"> <select id="pass_Teacher_Name"  class="form-control" placeholder="Select Teacher Name"  data-required="true"></select> </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <label class="col-lg-2 control-label">Select Class Name</label> 
+                                          <div class="col-lg-10">
+                                             <select id="pass_Class_Name"  class="form-control" placeholder="Select Class Name"  data-required="true">
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <label class="col-lg-2 control-label"> Enter Pass Percentage</label> 
+                                          <div class="col-lg-10"> 
+                                             <input type="number" id="pass_percentage" min="0" max="100" class="form-control" placeholder="Enter Pass Percentage"  data-required="true"> 
+                                          </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <div class="col-lg-offset-2 col-lg-10"> <button id="passPercentSubmit" type="submit" class="btn btn-sm btn-success">Submit</button> 
+                                    
+                                    </div>
+                                    </div>
+                                    </form>
+                                 </section>
+                              </div>
+                              
+                                       
+                                       
+                                       
+                                       
+                                       
+                                         <div id="future_GoalDiv" style="display:none;">
+                                 <section class="panel">
+                                    <header class="panel-heading" style="height:80px;"> 
+                                       <span class="label pull-right"><img src="images/logo.png" height="50px;"></span> <br>
+                                       Future Goal
+                                    </header>
+                                    <form class="bs-example form-horizontal"  id="futureGoal_form" method="post" action="#" style="margin:30px 50px 30px 50px;" data-validate="parsley">
+                                       <div class="form-group">
+                                          <label class="col-lg-2 control-label">Select Class Name</label> 
+                                          <div class="col-lg-10">
+                                             <select id="goal_Class_Name" onchange="sel_class()" class="form-control" placeholder="Select Class Name" data-required="true">
+                                                <option selected>Choose Class</option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <label class="col-lg-2 control-label">Select Student Name</label> 
+                                          <div class="col-lg-10"> 
+                                             <select  id="goal_Student_Name" class="form-control" placeholder="Select Student Name"  data-required="true"> </select>
+                                          </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <label class="col-lg-2 control-label">Select Goal</label> 
+                                          <div class="col-lg-10">
+                                             <select  id="goals" class="form-control" placeholder="Select Student Name"  data-required="true">
+                                                <option> CA </option>
+                                                <option> Engineer </option>
+                                                <option>Doctor </option>
+                                                <option>IPS</option>
+                                                <option>IAS</option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <div class="col-lg-offset-2 col-lg-10"> <button id="goalSubmit" type="submit" class="btn btn-sm btn-success">Submit</button> 
+                                    	
+                                    	</div>
+                                    </div>
+                                    </form>
+                                 </section>
+                              </div>
+                                         
+                                         
+                                         
+                                         
+                                         
+                                          
+                                          
+                                          
+                                       
+                                         
+                                         
+                                         
+                                         
+                                       
+                                       </div>
+                                    </div>
+                                 </section>
+                              </section>
+                           </aside>
+                        </section>
+                     </section>
+                  </section>
+               </aside>
+               <!-- /.aside --> 
+            </section>
+            <a href="javascript:void(0)" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> 
+         </section>
+         <!-- /.vbox --> 
+      </section>
+      <script src="js/app.v2.js"></script>
+  <script src="js/parsley/parsley.min.js"></script>
+     
+ <script type="text/javascript" src="js/Controllers/sideBarController_manager.js"></script>
+      <script type="text/javascript" src="js/Controllers/managerReportController.js"></script>
+           <script type="text/javascript" src="js/Controllers/managerDashboardController.js"></script>
+   </body>
+</html>

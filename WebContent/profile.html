@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>CyberClaz | Profile</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <!-- CSS  -->
+      <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
+      <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+      <link rel="stylesheet" href="js/fuelux/fuelux.css" type="text/css" />
+      <!-- JS -->
+      <script src="js/google/jquery.min.js"></script> 
+      <script src="js/google/jquery-ui.js"></script>
+      <script type="text/javascript" src="js/jason_parser.js"></script>
+      <script src="js/Controllers/webServerService.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/example.css">
+      <link rel="stylesheet" type="text/css" href="css/crop.css">
+      <script src="js/syntaxhighlight.js"></script>
+      <script src="js/crop.js"></script>
+   </head>
+   <body>
+      <section class="hbox stretch">
+         <!-- .aside --> 
+         <aside class="bg-black dk aside-sm nav-vertical only-icon" id="nav">
+            <section class="vbox" >
+               <header class="dker nav-bar" > <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="javascript:void(0)" class="nav-brand" style=""><img src="images/login-logo.png"  id="proImg" style="width:60px;"></a> <a onclick ="signout()" class="btn btn-link visible-xs" > <i class="fa fa-power-off"></i> </a>  </header>
+               <footer class="footer lt hidden-xs text-center"> <a href="javascript:void(0)" onclick ="signout()"  class="btn btn-sm btn-link"> <i class="fa fa-power-off"></i> <br>Exit </a> </footer>
+               <section>
+                  <!-- user --> 
+                  <div class="lt nav-user hidden-xs pos-rlt" style="    margin-top: -50px;">
+                     <div class="nav-avatar pos-rlt" id="picturePanel">
+                     </div>
+                  </div>
+                  <!-- / user --> <!-- nav --> 
+                  <nav class="nav-primary hidden-xs">
+                     <ul class="nav" id="sideBar">
+                     </ul>
+                  </nav>
+                  <!-- / nav --> 
+               </section>
+            </section>
+         </aside>
+         <!-- .vbox --> 
+         <section id="content">
+            <section class="hbox stretch bg-white-only">
+               <!-- .aside --> 
+               <aside class="">
+                  <section class="vbox">
+                     <header class="header bg-white pos-rlt navbar navbar-default show" Style="border-bottom:1px solid #F2F2F2;">
+                        <span class="arrow left" style="border-right-color:#fff"></span> 
+                        <div class="collapse navbar-collapse pull-in">
+                           <img src="images/logo.png" height="50px">
+                           <ul class="nav navbar-nav navbar-right">
+                              <li class="hidden-xs">
+                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                                    <form name="Tick">
+                                       <b>
+                                          <div  class="fa fa-clock-o text-muted" style="font-size:20px;"></div>
+                                          &nbsp;&nbsp;<input type="text" size="11" name="Clock" style="font-size:15px;border:none; background: transparent;" readonly>
+                                       </b>
+                                    </form>
+                                 </a>
+                              </li>
+                              
+                              
+                              
+                              
+                                            <li class="dropdown">
+            <a href="#" class="dropdown-toggle  dker" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left m-t-n-xs m-r-xs" id="picturePanelNav"> </span> <span id="namePanelNav"></span> <b class="caret"></b> </a> 
+            <ul class="dropdown-menu animated fadeInLeft">
+         
+               <li> <a href="profile.html"><i class="fa fa-user"></i>&nbsp;&nbsp;Profile</a> </li>
+              
+               <li> <a href="javascript:void(0)" onclick ="signout()"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Logout</a> </li>
+            </ul>
+         </li>
+                              
+                              
+                              
+                              
+                           </ul>
+                        </div>
+                     </header>
+ 
+ 
+ 
+ 
+  <section class="scrollable">
+                  <section class="hbox stretch">
+                     <aside class="aside-lg bg-light lter b-r">
+                        <section class="vbox">
+                           <section class="scrollable">
+                              <div class="wrapper">
+                                 <div class="clearfix m-b">
+                                    <a href="#" class="pull-left thumb m-r" id="proPicUrl">  </a> 
+                                    <div class="clear">
+                                       <div class="h3 m-t-xs m-b-xs" id="fullName"></div>
+                                       <small class="text-muted" id="userRole"></small> 
+                                    </div>
+                                 </div>
+                             
+                                 <div>
+                                    <small class="text-uc text-xs text-muted">Mobile Number</small> 
+                                    <p id="mobile"></p>
+                                      <div class="line"></div>
+                                    <small class="text-uc text-xs text-muted">Email Address</small> 
+                                    <p id="email"></p>
+                                    <div class="line"></div>
+                                    <small class="text-uc text-xs text-muted">Date Of Birth</small> 
+                                    <p id="dob"></p>
+                                    <div class="line"></div>
+                                    
+                                       <small class="text-uc text-xs text-muted">Address</small> 
+                                    <p id="address"></p>
+                                    <div class="line"></div>
+                                    <small class="text-uc text-xs text-muted">MANAGE PROFILE</small> 
+                                    <p class="m-t-sm"> 
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#profileModal" class="btn btn-rounded btn-twitter btn-icon"><i class="fa fa-edit"></i></a> 
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#passwordModal" class="btn btn-rounded btn-facebook btn-icon"><i class="fa fa-key"></i></a> 
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#uploadModal" class="btn btn-rounded btn-gplus btn-icon"><i class="fa fa-picture-o"></i></a> </p>
+                                 </div>
+                              </div>
+                           </section>
+                        </section>
+                     </aside>
+                     <aside class="bg-white">
+                        <section class="vbox">
+                           <header class="header bg-light bg-gradient">
+                              <ul class="nav nav-tabs nav-white">
+                                 <li class="active"><a href="#activity" data-toggle="tab">Academic Details</a></li>
+                                
+                              </ul>
+                           </header>
+                           <section class="scrollable">
+                              <div class="tab-content">
+                                 <div class="tab-pane active" id="activity">
+                                    <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border" id="detailPanelProfile">
+                                    
+                                    
+                                              
+                                                   
+                                                   
+                                                   
+                                                    </ul>
+                                 </div>
+                               
+                               
+                               
+                               
+                               <div id="graphPanel">
+                              
+                                       <header class="panel-heading">Monthly Attendance Report
+                                       </header>
+                                       <canvas id="canvas" height="226" width="829" style="width: 829px; height: 226px;"></canvas>
+                                       <div>
+                                          <center>
+                                             <canvas id="myCanvas" width="10" height="10" style="border:1px solid rgba(015,155,172,0.8); margin-right:10px; background-color:rgba(015,155,172,0.5);"></canvas>
+                                             Attendance (in %)
+                                          </center>
+                                       </div>
+                             
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               </div>
+                               
+                               
+                               
+                               
+                               
+                              
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                              </div>
+                           </section>
+                        </section>
+                     </aside>
+                     <aside class="col-lg-4 b-l">
+                        <section class="vbox">
+                           <section class="scrollable">
+                              <div class="wrapper">
+                                 <section class="panel">
+                                    <form> <textarea class="form-control no-border" rows="5" placeholder="What are you doing..."></textarea> </form>
+                                    <footer class="panel-footer bg-light lter">
+                                       <button class="btn btn-info pull-right btn-sm">POST</button> 
+                                       <ul class="nav nav-pills nav-sm">
+                                          <li><a href="#"><i class="fa fa-camera"></i></a></li>
+                                          <li><a href="#"><i class="fa fa-video-camera"></i></a></li>
+                                       </ul>
+                                    </footer>
+                                 </section>
+                                 <section class="panel">
+                                    <h4 class="font-thin padder">Latest Posts</h4>
+                                    <ul class="list-group">
+                                       <li class="list-group-item">
+                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                          <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 minuts ago</small> 
+                                       </li>
+                                       <li class="list-group-item">
+                                          <p>nunc condimentum ipsum dolor sit amet, consectetur</p>
+                                          <small class="block text-muted"><i class="fa fa-clock-o"></i> 1 hour ago</small> 
+                                       </li>
+                                       <li class="list-group-item">
+                                          <p>Vestibulum ullamcorper sodales nisi nec adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
+                                          <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small> 
+                                       </li>
+                                       <li class="list-group-item">
+                                          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                          <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small> 
+                                       </li>
+                                    </ul>
+                                 </section>
+                                
+                              </div>
+                           </section>
+                        </section>
+                     </aside>
+                  </section>
+               </section>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                  </section>
+               </aside>
+               <!-- /.aside --> 
+            </section>
+            <a href="javascript:void(0)" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> 
+         </section>
+         <!-- /.vbox --> 
+      </section>
+      <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" 
+         aria-labelledby="myModalLabel" aria-hidden="true">
+         <br><br><br><br>
+         <div class="modal-dialog" style="margin-top:-40px;">
+            <div class="modal-content" style="background-image:url('images/poster1.jpg');background-repeat:no-repeat;">
+               <div class="modal-body" style="color:#499989">
+                  <form name="conf_frm" id="conf_frm" action="#" method="post" data-validate="parsley" >
+                     <h5 style="color:#000;">
+                        <b>
+                           <div class="fa fa-pencil"></div>
+                           &nbsp;&nbsp;Edit Profile
+                        </b>
+                     </h5>
+                     <br>
+                     <div class="form-group pull-in clearfix">
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>First Name</label> 
+                           <input type="text" value="" class="form-control" data-rangelength="[4,15]" data-required="true" data-parsley-type="alphanum" id="itfirstName" name="itfirstName"  style="background-color:transparent;" > 
+                        </div>
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>Middle Name</label> 
+                           <input type="text" class="form-control" id="itmiddleName" name="itmiddleName" data-required="true" data-parsley-type="alphanum" data-rangelength="[4,15]"  style="background-color:transparent;" value="" > 
+                        </div>
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>Last Name</label> 
+                           <input type="text" class="form-control" id="itlastName" name="itlastName" data-required="true" data-parsley-type="alphanum"  data-rangelength="[4,15]" style="background-color:transparent;" value="" > 
+                        </div>
+                     </div>
+                     <div class="form-group pull-in clearfix">
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>Date of Birth</label> 
+                           <input type="text" class="form-control" data-required="true" id="itdob" name="itdob" style="background-color:transparent;" value=""  readonly> 
+                        </div>
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>Mobile Number</label> 
+                           <input type="text" class="form-control" id="itmobileNumber" data-type="number" name="itmobileNumber" data-rangelength="[10,15]" data-required="true" style="background-color:transparent;" value="" > 
+                        </div>
+                        <div class="col-sm-6" style="width:33%"> 
+                           <label>Email Address</label> 
+                           <input type="text" class="form-control" id="itemailId" name="itemailId" data-required="true" data-parsley-type="email"	style="background-color:transparent;" value="" > 
+                        </div>
+                        <div class="col-sm-2" > 
+                           <br>
+                           <label>Address</label>
+                        </div>
+                        <div class="col-lg-10"> 
+                           <br>
+                           <textarea placeholder="Enter your address here..." data-rangelength="[10,150]" class="form-control"  id="itaddress" name="itaddress"  rows="3"  data-required="true" placeholder="" style="resize:none;background-color: transparent;" ></textarea>
+                        </div>
+                     </div>
+                     <div class="modal-footer" >
+                        <div id="msgbox_new" style="color:#5BBFAB;float:left;"></div>
+                        <button type="submit" Style="border:none;background-color:#4c5566" class="btn btn-primary" data-dismiss="modal" onclick="loadProfile()">
+                        Cancel
+                        </button>
+                        <button type="submit" Style="border:none;background-color:#5BBFAB" class="btn btn-primary" disabled id="profileUpdate">
+                        Submit
+                        </button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal --> 
+      </div>
+      <div class="modal fade" style="overflow: hidden;"   id="uploadModal" tabindex="-1" role="dialog" 
+         aria-labelledby="myModalLabel" aria-hidden="true" >
+         <br><br><br><br>
+         <div class="modal-dialog" style="margin-top:-40px;">
+            <div class="modal-content" style="background-image:url('images/poster1.jpg');background-repeat:no-repeat;">
+               <div class="modal-body" style="color:#499989">
+                  <!-- <form action="#" method="post" enctype="multipart/form-data" id="photo_frm"  onsubmit="return false;">
+                     <h5 style="color:#000;"><b><div class="fa fa-user"></div>&nbsp;&nbsp;Upload Profile Picture</b></h5><br>
+                     
+                     
+                     
+                     
+                     <div class="form-group pull-in clearfix"> 
+                     
+                     <div class="col-sm-6" > 
+                     
+                     
+                     
+                      <input type='file' id="imgInp"  class="upload" name="file">
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     <input type="file" class="upload" name="file" id="file">
+                     
+                     
+                     
+                     
+                     </div> 
+                     
+                     
+                     
+                     
+                     <div class="col-sm-6" id="imagePreview" style="display:none;"> 
+                     
+                             <img id="blah" src="#" alt="your image" width="100%">
+                     
+                     
+                     
+                     
+                     </div> 
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     </div>
+                     
+                              <div class="modal-footer">
+                                 <div id="msgbox_pic" style="color:#5BBFAB;float:left;"></div>
+                            
+                                 <button type="submit" Style="border:none;background-color:#4c5566" class="btn btn-primary" data-dismiss="modal">
+                                 Cancel
+                                 </button>
+                                 <button type="submit" Style="border:none;background-color:#5BBFAB" class="btn btn-primary"  disabled id="uploadButton" onclick="changePicture(this.form.file.value, ['gif', 'jpg', 'png', 'jpeg'])">
+                                   Upload
+                                 </button>
+                              </div>
+                           
+                           
+                      </form>
+                      -->
+                  <div class="example">
+                     <div class="default"></div>
+                  </div>
+                  <ul class="cmd">
+                     <a href="javascript:void(0)" class="btn btn-s-md btn-warning btn-rounded" style="float:left;margin-top:20px;margin-left:-40px;" onclick="choosePicture();" >Choose Picture</a>
+                     <button href="javascript:void(0)" class="btn btn-s-md btn-success btn-rounded" style="float:right;margin-top:20px;" onclick="convertImage(foo.data(300,300,'png').image)" disabled id="choosePicButton">Upload Picture</button>
+                     <br><br>
+                  </ul>
+                  <!-- preview container element -->
+                  <div class="pre"></div>
+                  <div id="msgbox_picture" style="display:none"><img src="images/loading-green.gif" height="40"> &nbsp;&nbsp;<b>Please wait while we uploading your image..</b></div>
+                  <script>
+                     function choosePicture(){
+                     	
+                     	document.getElementById("choosePicButton").disabled = false;
+                     	
+                     	foo.import();
+                     	
+                     }
+                     
+                     
+                     
+                     function convertImage(str){
+                     
+                     	changePicture(str);
+                     
+                     }
+                     
+                     
+                     	//  create a new instance
+                     	// --------------------------------------------------------------------------
+                     
+                     	// you may do multiple instances of the cropper on a single page
+                     	// just be sure to give each a unique name
+                     	var foo = new CROP();
+                     
+                     	foo.init({
+                     
+                     		// element to load the cropper into
+                     		container: '.default',
+                     
+                     		// image to load, accepts base64 string
+                     		image: 'test.jpg',
+                     
+                     		// aspect ratio
+                     		width: 300,
+                     		height: 300,
+                     
+                     		// prevent image from leaking outside of container. boolean
+                     		mask: false,
+                     
+                     		// input[range] attributes
+                     		zoom: {
+                     
+                     			// slider step change
+                     			steps: 0.01,
+                     
+                     			// minimum and maximum zoom
+                     			min: 1,
+                     			max: 5
+                     
+                     		},
+                     
+                     		// optional preview. remove this array if you wish to hide it
+                     		preview: {
+                     
+                     
+                     			// aspect ratio
+                     			ratio: 0.75,
+                     
+                     		},
+                     
+                     
+                     	});
+                     
+                     
+                     	//  toggle mask
+                     	// --------------------------------------------------------------------------
+                     
+                     	$('body').on("click", 'li.maskbg', function () {
+                     
+                     		$('.example').toggleClass('maskbg');
+                     		$('.default').attr('data-mask', $('.default').attr('data-mask') === 'true' ? 'false' : 'true');
+                     		$('li.maskbg').html($('li.maskbg').html() == 'Mask' ? 'Unmask' : 'Mask');
+                     
+                     	});
+                     
+                     
+                  </script>
+                  <script>
+                     prettyPrint();
+                  </script>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal --> 
+      </div>
+      <div class="modal fade" style="overflow: hidden;margin-top:100px;"   id="passwordModal" tabindex="-1" role="dialog" 
+         aria-labelledby="myModalLabel" aria-hidden="true" >
+         <br><br><br><br>
+         <div class="modal-dialog" style="margin-top:-40px;">
+            <div class="modal-content" style="background-image:url('images/poster1.jpg');background-repeat:no-repeat;">
+               <div class="modal-body" style="color:#499989">
+                  <div id="passwordPanel" style="display:block">
+                     <form name="password_frm" id="password_frm" action="" method="post" data-validate="parsley" >
+                        <h5 style="color:#000;">
+                           <b>
+                              <div class="fa fa-key"></div>
+                              &nbsp;&nbsp;Change Password
+                           </b>
+                        </h5>
+                        <br>
+                        <div class="form-group pull-in clearfix">
+                           <div class="col-sm-8" > 
+                              <label>Current Password</label> 
+                              <input type="password" class="form-control" style="background-color:transparent;"  data-required="true" id="currentPass" name="currentPass"> 
+                           </div>
+                        </div>
+                        <div class="form-group pull-in clearfix">
+                           <div class="col-sm-8" >  
+                              <label>New Password</label> 
+                              <input type="password" class="form-control" style="background-color:transparent;" data-required="true" data-parsley-type="alphanum"  minlength="6" id="newPass" > 
+                           </div>
+                        </div>
+                        <div class="form-group pull-in clearfix">
+                           <div class="col-sm-8" > 
+                              <label>Confirm New Password</label> 
+                              <input type="password" class="form-control" style="background-color:transparent;" data-required="true" data-parsley-type="alphanum"  minlength="6" id="confPass" data-equalto="#newPass" > 
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <div id="msgbox_password" style="color:#5BBFAB;float:left;"></div>
+                           <button type="submit" Style="border:none;background-color:#4c5566" class="btn btn-primary" data-dismiss="modal" onclick="loadProfile()">
+                           Cancel
+                           </button>
+                           <button type="submit" Style="border:none;background-color:#5BBFAB" class="btn btn-primary"  >
+                           Submit
+                           </button>
+                        </div>
+                     </form>
+                  </div>
+                  <div id="expirePanel" style="display:none">
+                     <br><br>
+                     <center>
+                        <img src="images/green_loader.gif"><br>
+                        <div style="font-size:15px;" >Your session has been expired please Log In With New Password !!</div>
+                     </center>
+                  </div>
+               </div>
+            </div>
+            <!-- /.modal-content -->
+         </div>
+         <!-- /.modal --> 
+      </div>
+      <script src="js/bootstrap.js"></script> 
+      <script src="js/parsley/parsley.min.js"></script>
+      <script type="text/javascript" src="js/Controllers/sideBarController.js"></script>
+      <script type="text/javascript" src="js/Controllers/profileController.js"></script>
+            <script src="js/Chart.StackedBar.js"></script>
+           <script src="js/Chart.min.js"></script>
+       <script type="text/javascript" src="js/Controllers/profileGraphController.js"></script>
+   </body>
+</html>

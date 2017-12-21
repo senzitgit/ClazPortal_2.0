@@ -1,0 +1,211 @@
+
+
+
+* {
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+
+
+body {
+	
+	margin:0;
+	padding:0; 
+	font-family: 'Lato', sans-serif;
+	
+	
+	
+	
+	background-color:white;
+	background-image: url('../images/background.jpg');
+	background-repeat:repeat;
+	
+	
+	
+}
+
+.login-form-wrap {
+	
+	
+	position: relative;
+	width: 360px;
+	margin-top:80px !important;
+	margin: 60px  auto;
+	padding: 50px 30px 0 30px;
+	text-align: center;
+	&:before {
+		background: url(http://i.imgur.com/0vLxyVB.png);
+		display: block;
+		content: '';
+		width: 58px;
+		height: 19px;
+		top: 10px;
+		left: 10px;
+		position: absolute;
+
+	}
+	 h1 {
+		margin: 0 0 50px 0;
+		padding: 0;  
+		font-size: 26px;
+		color:#fff;
+	}
+	h5 {
+		margin-top: 40px;
+	}
+
+	h5 > a {
+		font-size: 14px;
+		color: #fff;
+		text-decoration: none; 
+		font-weight: 400;
+	}
+}
+
+
+
+
+
+
+.login-form input[type="text"] {
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding-bottom: 13px;
+    box-shadow: 0 -1px 0 #E0E0E0 inset, 0 1px 2px rgba(0, 0, 0, 0.23) inset;
+}
+
+
+
+.navbar {
+/* default fallback */
+background: rgb(255, 255, 255) transparent;
+/* nice browsers */
+background: rgba(255, 255, 255, 0.7);
+height:61px; 
+   
+
+}
+
+.menu_active{
+font-weight:bold;
+color:#000;
+}
+
+.menu_inactive{
+font-weight:bold;
+color:#ccc;
+}
+
+
+
+.login-form  input[type="text"], input[type="password"]  {
+		width: 100%; 
+		border: 1px solid #ccc;
+		outline: none;
+		padding: 12px 20px;
+		color: #afafaf;
+		font-weight: 400;
+	  font-family: 'Lato', sans-serif;
+  
+	}
+	
+	
+	
+.widget-container .si-button {
+    border: 1px solid transparent;
+    position: absolute;
+    top: 30px;
+    right: 5px;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    padding: 5px;
+	
+	
+}
+	
+	
+	button {
+		margin-top: -39px !important;
+    margin-left: 245px !important;
+    font-size: 31px !important;
+	 
+    background: none;
+    border: none;
+    box-sizing: content-box;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    line-height: inherit;
+    overflow: visible;
+    vertical-align: inherit;
+}
+	
+	
+	
+	
+	
+	
+	
+
+.login-form  input[type="text"] {
+		border-bottom: none; 
+		border-radius: 6px 6px 0 0;
+		padding-bottom: 13px;
+		box-shadow: 0 -1px 0 #E0E0E0 inset,
+					0 1px 2px rgba(0, 0, 0, 0.23) inset;
+	}
+
+.login-form input[type="password"] {
+		border-top: none; 
+		border-radius: 0 0 6px 6px;
+		box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.23) inset,
+					0 1px 2px rgba(255, 255, 255, 0.1);
+	}
+	
+	.footer {
+  
+    bottom:0px;
+
+  
+    color:#fff !important;
+}
+
+
+	.footer >a{
+  text-align:center;
+  font-size:15px;
+   font-family: 'Lato', sans-serif;
+    color:#909296!important;
+}
+.login-form input[type="submit"] {
+	  font-family: 'Lato', sans-serif;
+	  font-weight: 400;
+		background:#25bebc;
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#cecece',GradientType=0 );
+		display: block;
+		margin: 20px auto 0 auto;
+		width: 100%;
+		border: none;
+		border-radius: 3px;
+		padding: 8px;
+		font-size: 17px;
+		color: #636363;
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+		font-weight: 700;
+		box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.17),
+					0 1px 0 rgba(255, 255, 255, 0.36) inset;
+    :hover {
+      background:#DDD; 
+    }
+    :active {
+      padding-top: 9px;
+      padding-bottom: 7px;
+      background:#C9C9C9; 
+    }
+	}
+}
+
+
+

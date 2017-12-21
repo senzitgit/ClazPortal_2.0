@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>CyberClaz | Search Class</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
+      <link rel="stylesheet" href="css/font.css" type="text/css" />
+      <link rel="stylesheet" href="js/fuelux/fuelux.css" type="text/css" />
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <script src="js/google/jquery.min.js"></script> 
+      <script src="js/google/jquery-ui.js"></script>
+      <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+      
+
+      <script src="js/Controllers/webServerService.js"></script>
+
+      <style type="text/css">
+         #wrap {width: 100%;}
+         a {outline: 0 none;}
+      </style>
+
+
+   </head>
+   <body>
+      <section class="hbox stretch">
+         <!-- .aside --> 
+         <aside class="bg-black dk aside-sm nav-vertical only-icon" id="nav">
+            <section class="vbox" >
+               <header class="dker nav-bar" > <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="javascript:void(0)" class="nav-brand" style=""><img src="images/login-logo.png"  id="proImg" style="width:60px;"></a> <a onclick ="signout()" class="btn btn-link visible-xs" > <i class="fa fa-power-off"></i> </a>  </header>
+               <footer class="footer lt hidden-xs text-center"> <a href="javascript:void(0)" onclick ="signout()"  class="btn btn-sm btn-link"> <i class="fa fa-power-off"></i> <br>Exit </a> </footer>
+               <section>
+                  <!-- user --> 
+                  <div class="lt nav-user hidden-xs pos-rlt" style="    margin-top: -50px;">
+                     <div class="nav-avatar pos-rlt" id="picturePanel">
+                     </div>
+                  </div>
+                  <!-- / user --> <!-- nav --> 
+                  <nav class="nav-primary hidden-xs">
+                     <ul class="nav" id="sideBar">
+                     </ul>
+                  </nav>
+                  <!-- / nav --> 
+               </section>
+            </section>
+         </aside>
+         <!-- .vbox --> 
+         <section id="content">
+            <section class="hbox stretch bg-white-only">
+               <!-- .aside --> 
+               <aside class="">
+                  <section class="vbox">
+                     <header class="header bg-white pos-rlt navbar navbar-default show" Style="border-bottom:1px solid #F2F2F2;">
+                        <span class="arrow left" style="border-right-color:#fff"></span> 
+                        <div class="collapse navbar-collapse pull-in">
+                           <img src="images/logo.png" height="50px">
+                           <ul class="nav navbar-nav navbar-right">
+                              <li class="hidden-xs">
+                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                                    <form name="Tick">
+                                       <b>
+                                          <div  class="fa fa-clock-o text-muted" style="font-size:20px;"></div>
+                                          &nbsp;&nbsp;<input type="text" size="11" name="Clock" style="font-size:15px;border:none; background: transparent;" readonly>
+                                       </b>
+                                    </form>
+                                 </a>
+                              </li>
+                              
+                              
+                              
+                              <li class="dropdown">
+            <a href="#" class="dropdown-toggle  dker" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left m-t-n-xs m-r-xs" id="picturePanelNav"> </span> <span id="namePanelNav"></span> <b class="caret"></b> </a> 
+            <ul class="dropdown-menu animated fadeInLeft">
+         
+               <li> <a href="profile.html"><i class="fa fa-user"></i>&nbsp;&nbsp;Profile</a> </li>
+              
+               <li> <a href="javascript:void(0)" onclick ="signout()"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Logout</a> </li>
+            </ul>
+         </li>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                           </ul>
+                         
+                        </div>
+                     </header>
+                     <section>
+                        <section class="hbox stretch">
+                           <aside>
+                              <section class="vbox">
+                                 <section class="scrollable wrapper">
+                                 
+                                 
+                                 
+                                                 <div id="mainSearchPanel" style="display:block">
+                                          <form id="advanceSearch_form" method="post" action="javascript:void(0)">
+                                             <div class="breadcrumb" style="width:50%;margin-left:22%">
+                                               
+                                               <br>
+                                               <img src="images/logo.png" height="55px" style="float:right">  
+                                             <h4> Never Miss A Class.. Search Here..</h4> 
+                                            
+                                               
+                                                <div class="row" style="display:block" >
+                                                   
+                                                 
+                                                   <div class="col-lg-12" style="width:75%;margin-left:10%;margin-top:20px;">
+                                                      <!-- .breadcrumb --> 
+                                                      <select class="input-sm input-s datepicker-input form-control" name="subject"  id="subjectList" style="width:100%">
+                                                         <option value="" disabled selected>--- Select Subject---</option>
+                                                      </select>
+                                                      <br>
+                                                  
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                        <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control"  data-required="true" placeholder="Select Date" name="date" id="date" style="    font-size: 12px;"/>
+                    <span class="input-group-addon">
+                       <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+	  
+	   <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+				
+				format: 'YYYY-MM-DD'
+				});
+            });
+        </script>
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      
+                                    <br>                       
+                                                      
+                                                      
+                                                      
+                                                      
+                                                      <input class="input-sm input-s datepicker-input form-control" size="16" type="text" placeholder="Enter Topic (Eg : Lexical)" name="topic" id="topic" style="width:100%">
+                                                   
+                                                                                                                                                    <button type="submit" class="btn btn-success" style="float:right;margin-top:20px;">Search Class</button>
+                                                   
+                                                   
+                                                   </div>
+                                                  
+                                                </div>
+                                                <center>
+                                                   <div id="msgbox_advanced" style="margin-top:10px;"></div>
+                                                </center>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                             </div>
+                                          </form>
+                                       </div>
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <div>
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+<table class="table table-striped b-t text-sm" id="searchDataTable" style="display:none">
+   <thead>
+      <tr>
+      
+         <th class="th-sortable" data-toggle="class">Subject</th>
+         <th>Topic</th>
+         <th>Teacher</th>
+         <th>Time</th>
+         <th width="30"></th>
+      </tr>
+   </thead>
+   <tbody id="searchList">
+     
+    
+    
+   </tbody>
+</table>                                 
+           
+          		       <div id="noResult" style="display:none"><center><div style="font-size:100px;margin-top:20px;" class="fa fa-times"></div><div style="font-size:15px;">No Search Results Found!! Search Again..</div></center></div>
+           
+           
+           <div class="col-lg-12" style="margin-top:50px;">
+           
+            <div class="col-lg-4">
+            
+             <img src="images/vod_ban.png" style="width:300px;float:right">
+            
+            
+            </div>
+            
+                <div class="col-lg-8">
+                 <img src="images/cap1.jpg"><br><br>
+     <img src="images/sub1.jpg">
+                
+                </div>
+           
+           
+           
+           </div>
+           
+           
+           
+           
+           
+           
+           
+           
+           
+                                 
+                                 
+                                
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                               
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 </div>
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                    </section>
+                              </section>
+                           </aside>
+                        </section>
+                     </section>
+                  </section>
+               </aside>
+               <!-- /.aside --> 
+            </section>
+         </section>
+         <!-- /.vbox --> 
+      </section>
+      
+    
+     
+      <script src="js/bootstrap.js"></script> 
+ 
+      <script src="js/moment-with-locales.js"></script>
+	 <script src="js/bootstrap-datetimepicker.js"></script>
+
+      <script type="text/javascript" src="js/Controllers/sideBarController.js"></script>
+<script type="text/javascript" src="js/Controllers/searchController.js"></script>
+   </body>
+</html>

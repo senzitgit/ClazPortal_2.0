@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>CyberClaz | Search Class</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+      <!-- CSS  -->
+      <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
+      <link rel="stylesheet" href="css/chatbox.css" type="text/css" />
+      <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+      <!-- JS -->
+    <script src="popup/jquery.js"></script>
+      <script src="js/google/jquery-ui.js"></script>
+      
+      <script>
+         $(window).load(function(){
+         $('#feed3').draggable();
+         });
+      </script>
+      
+      <!-- POPUP -->
+      <link rel="stylesheet" type="text/css" href="popup/jquery.fancybox.css" />
+      <link rel="stylesheet" type="text/css" href="popup/jquery.fancybox-buttons.css" />
+      <link href="css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+      
+      <style type="text/css">
+         #wrap {width: 100%;}
+         a {outline: 0 none;}
+      </style>
+  
+      <script type="text/javascript" src="popup/jquery.fancybox.js"></script>
+      <script src="js/Controllers/webServerService.js"></script>
+
+
+<script>
+         $(window).load(function(){
+         $('#feed3').draggable();
+         });
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+   </head>
+   <body>
+      <section class="hbox stretch">
+         <!-- .aside --> 
+         <aside class="bg-black dk aside-sm nav-vertical only-icon" id="nav">
+            <section class="vbox" >
+               <header class="dker nav-bar" > <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="javascript:void(0)" class="nav-brand" style=""><img src="images/login-logo.png"  id="proImg" style="width:60px;"></a> <a onclick ="signout()" class="btn btn-link visible-xs" > <i class="fa fa-power-off"></i> </a>  </header>
+               <footer class="footer lt hidden-xs text-center"> <a href="javascript:void(0)" onclick ="signout()"  class="btn btn-sm btn-link"> <i class="fa fa-power-off"></i> <br>Exit </a> </footer>
+               <section>
+                  <!-- user --> 
+                  <div class="lt nav-user hidden-xs pos-rlt" style="    margin-top: -50px;">
+                     <div class="nav-avatar pos-rlt" id="picturePanel">
+                     </div>
+                  </div>
+                  <!-- / user --> <!-- nav --> 
+                  <nav class="nav-primary hidden-xs">
+                     <ul class="nav" id="sideBar">
+                     </ul>
+                  </nav>
+                  <!-- / nav --> 
+               </section>
+            </section>
+         </aside>
+         <!-- .vbox --> 
+         <section id="content">
+            <section class="hbox stretch bg-white-only">
+               <!-- .aside --> 
+               <aside class="">
+                  <section class="vbox">
+                     <header class="header bg-white pos-rlt navbar navbar-default show" Style="border-bottom:1px solid #F2F2F2;">
+                        <span class="arrow left" style="border-right-color:#fff"></span> 
+                        <div class="collapse navbar-collapse pull-in">
+                           <img src="images/logo.png" height="50px">
+                           <ul class="nav navbar-nav navbar-right">
+                              <li class="hidden-xs">
+                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                                    <form name="Tick">
+                                       <b>
+                                          <div  class="fa fa-clock-o text-muted" style="font-size:20px;"></div>
+                                          &nbsp;&nbsp;<input type="text" size="11" name="Clock" style="font-size:15px;border:none; background: transparent;" readonly>
+                                       </b>
+                                    </form>
+                                 </a>
+                              </li>
+                              
+                              
+                                            <li class="dropdown">
+            <a href="#" class="dropdown-toggle  dker" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left m-t-n-xs m-r-xs" id="picturePanelNav"> </span> <span id="namePanelNav"></span> <b class="caret"></b> </a> 
+            <ul class="dropdown-menu animated fadeInLeft">
+         
+               <li> <a href="profile.html"><i class="fa fa-user"></i>&nbsp;&nbsp;Profile</a> </li>
+              
+               <li> <a href="javascript:void(0)" onclick ="signout()"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Logout</a> </li>
+            </ul>
+         </li>
+                              
+                    
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                           </ul>
+                           <ul class="nav navbar-nav navbar-right" style="margin-right:50px;display:none" id="askadoubt" >
+                            
+                           </ul>
+                        </div>
+                     </header>
+                     <section>
+                        <section class="hbox stretch">
+                           <aside>
+                              <section class="vbox">
+                                 <section class="scrollable wrapper">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                             
+                  <section class="hbox stretch">
+                     <aside class="aside-lg bg-light lter b-r">
+                        <section class="vbox">
+                           <section class="scrollable">
+                              <div class="wrapper">
+                                 <div class="clearfix m-b">
+                                    <a href="javascript:void(0)" class="pull-left thumb m-r" id="Tpic">  </a> 
+                                    <div class="clear" id="teachPanel">
+                                        
+                                    </div>
+                                 </div>
+                                 <div class="panel wrapper">
+                                    <div class="row" id="countsPan"> </div>
+                                 </div>
+                                 <div class="btn-group btn-group-justified m-b"> 
+                                 <a class="btn btn-success btn-rounded" id="likeButton"> <span class="text"> <i class="fa fa-thumbs-o-up"></i> Like (<span id="lCount"></span>) </span> </a> 
+                                 <a class="btn btn-info btn-rounded" id="disLikeButton"> <i class="fa fa-thumbs-o-down"></i> Dislike (<span id="dCount"></span>)</a> </div>
+                                 <div id="ClassInfo"></div>
+                              </div>
+                           </section>
+                        </section>
+                     </aside>
+                     <aside class="bg-white">
+                        <section class="vbox">
+                    
+                    
+                    
+
+            
+                    
+                    
+                    
+                    
+                    <div class="col-lg-12"  id="feed1Resp">
+                                       <section class="panel" id="progressbar">
+                                          <header class="panel-heading">
+                                             <ul class="nav nav-pills pull-right">  </ul>
+                                             Feed1
+                                             <div  id="mutebtn1">
+                                                <div  class="fa fa-volume-up"  style="font-size:20px; float:right;margin-top:-20px;">
+                                                </div>
+                                             </div>
+                                          </header>
+                                          <div id="feed1">
+                                             <img src="images/poster0.jpg" style="width:100%">		
+                                          </div>
+                                          <div id="feed3"   style="z-index: 1;">
+                                          </div>
+                                       </section>
+                                       <div Style="width:100%;" id="controlPanel">
+                                          <!-- .breadcrumb --> 
+                                          <div class="breadcrumb" >
+                                             <div class="row">
+                                                <div class="col-lg-4" style="width:10%" id="playpausebtn">
+                                                   <a href="javascript:void(0)" id="">
+                                                      <div class="fa fa-pause"  style="font-size:20px; margin-top:6px;margin-left:6px;"></div>
+                                                   </a>
+                                                </div>
+                                                <div class="col-lg-4" style="width:38%">
+                                                   <input style="margin-top:0px; " id="seekslider" type="range" min="0" max="100" value="0" step="1" class="slider">
+                                                </div>
+                                                <div class="col-lg-2" Style="width:22%;margin-top:5px;" >
+                                          <span   id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>	
+                                       </div>
+                                                
+                                                
+                                                <div class="col-lg-1" style="" >
+                                                   <a href="javascript:void(0)" onclick="audioMute()" id="muteUnmuteButton">
+                                                      <div class="fa fa-volume-up"  style="font-size:20px; margin-top:5px;" ></div>
+                                                   </a>
+                                                </div>
+                                                <div class="col-lg-4" style="width:20%" >
+                                                   <input style="margin-top:0px;" id="volumeslider"  type="range" min="0" max="100" value="100" step="1" class="slider">
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <!-- / .breadcrumb --> 
+                                       </div>
+                           
+                                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        </section>
+                     </aside>
+                     <aside class="col-lg-4 b-l">
+                        <section class="vbox">
+                       
+                       
+                       
+                       
+                       
+                         <div class="col-lg-12" Style=" height:200px;" id="feed2Resp">
+                                       <section class="panel" id="progressbar">
+                                          <header class="panel-heading">
+                                             <ul class="nav nav-pills pull-right">  </ul>
+                                             Feed2
+                                             <div  id="mutebtn2">
+                                                <div  class="fa fa-volume-up"  style="font-size:20px; float:right;margin-top:-20px;">
+                                                </div>
+                                             </div>
+                                          </header>
+                                          <div id="feed2">
+                                             <img src="images/poster0.jpg" style="width:100%">		
+                                          </div>
+                                       </section>
+                         
+                                       <div id="menuPanel" style="display:block">
+                                          <footer  class="panel-footer bg-light lter" Style="font-size:11px; border:none; margin-top:-16px; margin-bottom:-15px; background-color: #fff; height:50px;">
+                                             <ul class="nav nav-pills">
+                                                <li  style="float:right;">
+                                                   <a href="javascript:void(0)"  id="raiseButton">
+                                                      <center><i class="fa  fa-hand-o-up"></i><span style="font-size:11px;"><br>Raise Hand</span></center>
+                                                   </a>
+                                                </li>
+                                                <li  style="float:right;">
+                                                   <a href="javascript:void(0)" id="logButton">
+                                                      <center><i class="fa fa-pencil-square-o"></i><span style="font-size:11px;"><br>Logs</span></center>
+                                                   </a>
+                                                </li>
+                                                <li  style="float:right;">
+                                                   <a href="javascript:void(0)" id="clazNoteButton">
+                                                      <center><i class="fa fa-file"></i><span style="font-size:11px;"><br>Notes</span></center>
+                                                   </a>
+                                                </li>
+                                                <li  style="float:right;">
+                                                   <a href="javascript:void(0)" id="attachmentButton">
+                                                      <center><i class="fa fa-paperclip"></i><span style="font-size:11px;"><br>Attachments</span></center>
+                                                   </a>
+                                                </li>
+                                               
+                                             </ul>
+                                          </footer>
+                                          <div style="display:block" id="logArea">
+                                             <br><br><br>
+                                             <section class="content scrollable" Style="height: 175px; font-size:9px;" >
+                                                <ul class="list-group alt" id="listLogs"> 
+                                                </ul>
+                                             </section>
+                                          </div>
+                                          <div style=" display:none" id="attachmentArea">
+                                             <br><br><br>
+                                             <section class="content scrollable" Style="height: 175px; font-size:9px;">
+                                                <ul class="list-group alt" id="listAttachment"> 
+                                                </ul>
+                                             </section>
+                                          </div>
+                                          <div style=" display:none" id="raiseArea">
+                                             <br><br><br>
+                                             <section class="content scrollable" Style="height: 175px; font-size:9px;">
+                                                <ul class="list-group alt" id="listRaiseHand"> 
+                                                </ul>
+                                             </section>
+                                          </div>
+                              
+                                          <div style="display:none" id="noteArea" >
+                                             <br><br><br>  
+                                             <section class="content scrollable" Style="height: 175px; font-size:9px;">
+                                                <ul class="list-group alt" id="listNotes"> 
+                                              
+                                                </ul>
+                                             </section>
+                                          </div>
+                                          <br>
+                                       </div>
+                                       <form>
+                                          <input type="hidden" id="txt" />
+                                          <input type="hidden" id="txt1" />
+                                       </form>
+                                    </div>
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                        </section>
+                     </aside>
+         
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                       
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                    </section>
+                              </section>
+                           </aside>
+                        </section>
+                     </section>
+                  </section>
+               </aside>
+               <!-- /.aside --> 
+            </section>
+         </section>
+         <!-- /.vbox --> 
+      </section>
+      
+          	   <div class="copyright" style="position: fixed;
+    left: 0;
+ margin-left:5%;
+    bottom:0;
+    margin-bottom:-17px;
+   
+   ">
+   
+   
+   
+   
+      <div class="row bootstrap snippets">
+<div class="col-md-3" style="width:21%">
+    <!-- DIRECT CHAT WARNING -->
+    <div class="box box-danger direct-chat direct-chat-danger">
+      <div class="box-header with-border" >
+        <h5 class="box-title" style="font-size:15px;">Ask Your Doubts</h5>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" id="toGDiv" ><i class="fa fa-retweet"></i>
+          </button>
+     
+
+        </div>
+      </div>
+      <!-- /.box-header -->
+      
+      
+      
+      
+      
+      
+      
+      <div class="box-body" id="chatBody" style="display: none;" >
+        <!-- Conversations are loaded here -->
+        <div class="direct-chat-messages">
+       
+       
+       
+       
+       
+       
+       
+          <div class="direct-chat-msg" id="doubtIntro">
+            
+           </div>
+          
+          
+          
+          
+          
+         <div id="doubtsPan"></div> 
+      
+
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <!-- /.direct-chat-msg -->
+        </div>
+        <!--/.direct-chat-messages-->
+
+        <!-- Contacts are loaded here -->
+        <div class="direct-chat-contacts">
+          <ul class="contacts-list">
+            <li>
+              <a href="#">
+                <img class="contacts-list-img" src="http://bootdey.com/img/Content/user_1.jpg">
+
+                <div class="contacts-list-info">
+                      <span class="contacts-list-name">
+                        Count Dracula
+                        <small class="contacts-list-date pull-right">2/28/2015</small>
+                      </span>
+                  <span class="contacts-list-msg">How have you been? I was...</span>
+                </div>
+                <!-- /.contacts-list-info -->
+              </a>
+            </li>
+            <!-- End Contact Item -->
+          </ul>
+          <!-- /.contatcts-list -->
+        </div>
+        <!-- /.direct-chat-pane -->
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer">
+        <form action="javascript:void(0)" id="doubt_form" method="post">
+          <div class="input-group">
+            <input type="text" name="message" id="doubt" placeholder="Type Question..." class="form-control">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-danger btn-flat">Send</button>
+                </span>
+          </div>
+        </form>
+      </div>
+      
+      
+      </div>
+      
+      
+      <!-- /.box-footer-->
+    </div>
+    <!--/.direct-chat -->
+  </div>
+</div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+     
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+   
+   
+   
+      <script src="js/bootstrap.js"></script> 
+ 
+<script type="text/javascript" src="js/Controllers/playerController.js"></script>
+<script type="text/javascript" src="js/Controllers/videoController.js"></script>
+      <script type="text/javascript" src="js/Controllers/sideBarController.js"></script>
+
+   </body>
+</html>

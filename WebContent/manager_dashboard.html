@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>CyberClaz | Manager Dashboard</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+     
+     	 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">	
+     
+      <!-- CSS  -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/app.v2.css" type="text/css" />
+      <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+      <link rel="stylesheet" href="js/google/jquery-ui.css">
+      <link rel="stylesheet" href="js/fullcalendar/fullcalendar.css" type="text/css" />
+      <link href='calender/fullcalendar.css' rel='stylesheet' />
+      <link href='calender/fullcalendar.print.css' rel='stylesheet' media='print' />
+      <!-- JS -->
+      <script src="js/google/jquery.min.js"></script> 
+      <script src="js/google/jquery-ui.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/Chart.min.js"></script>
+      <script src='calender/lib/moment.min.js'></script>
+      <script src='calender/fullcalendar.min.js'></script>
+
+      <script src="js/Chart.StackedBar.js"></script>
+      <script type="text/javascript" src="js/jason_parser.js"></script>
+      <script type="text/javascript" src="js/google/jsapi.js"></script> 
+      <script src="js/Controllers/webServerService.js"></script>
+      <style type="text/css">
+      .caret{
+display:none;
+}
+      </style>
+
+   <body >
+      <section class="hbox stretch">
+      <!-- .aside --> 
+      <aside class="bg-black dk aside-sm nav-vertical only-icon" id="nav">
+         <section class="vbox" id="headerSideBar">
+            <footer class="footer lt hidden-xs text-center"> <a href="javascript:void(0)" onclick ="signout()"  class="btn btn-sm btn-link"> <i class="fa fa-power-off"></i> <br>Exit </a> </footer>
+            <section>
+               <div class="lt nav-user hidden-xs pos-rlt">
+                  <div class="nav-avatar pos-rlt">
+                     <div id="picturePanel"></div>
+                  </div>
+               </div>
+               <!-- / user --> 
+               <!-- nav --> 
+               <nav class="nav-primary hidden-xs">
+                  <ul class="nav" id="sideBar">
+                         </ul>
+               </nav>
+               <!-- / nav --> 
+            </section>
+         </section>
+      </aside>
+      <!-- /.aside --> 
+      <!-- .vbox --> 
+      <section id="content">
+         <section class="hbox stretch bg-white-only">
+            <!-- .aside --> 
+            <aside class="">
+               <section class="vbox">
+                 <header class="header  navbar pull-in">
+   <div class="navbar-header nav-bar aside dk"> <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-primary"> <i class="fa fa-bars"></i> </a> <a href="#" class="nav-brand" data-toggle="fullscreen"><img src="images/logo.png" style="    max-height: 50px;"></a> <a class="btn btn-link visible-xs" data-toggle="collapse" data-target=".navbar-collapse"> <i class="fa fa-comment-o"></i> </a> </div>
+   <div class="collapse navbar-collapse" style="border-bottom:1px solid #e6e6e6">
+  
+      <ul class="nav navbar-nav navbar-right">
+        
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle  dker" > <span class="thumb-sm avatar pull-left m-t-n-xs m-r-xs" id="picturePanelNav"> </span> <span id="namePanelNav"></span>  </a> 
+            
+         </li>
+      </ul>
+   </div>
+</header>   
+                  <section class="scrollable wrapper">
+                     <div class="row">
+                     
+                     
+                     
+                     
+                     
+                                   <div class="col-lg-12 col-sm-12">
+                           <section class="panel">
+                              <div class="panel-body">
+                                 <div class="clearfix m-b">
+                                    <small class="text-muted pull-right"></small> 
+                                    <a href="javascript:void(0)" class="thumb-sm pull-left m-r"> 
+                                    </a> 
+                                    <div class="clear"> <a href="javascript:void(0)"><strong>Commenced Class</strong></a> 
+                                       <small class="block text-muted"></small> 
+                                    </div>
+                                 </div>
+                                 
+  
+                      <div class="modal-body" id="modalAttendBoday">
+               </div>
+
+                              </div>
+                           
+                           </section>
+                        </div>
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                   
+                     
+                     
+                     
+                        <div class="col-lg-4 col-sm-4">
+                           <section class="panel" >
+                              <div class="panel-body">
+                                 <div class="clearfix m-b">
+                                    <small class="text-muted pull-right">10/06/2017</small> 
+                                    <a href="javascript:void(0)" class="thumb-sm pull-left m-r"> 
+                                    <img src="images/avatar.jpg" class="img-circle"> </a> 
+                                    <div class="clear"> <a href="javascript:void(0)"><strong>Top Session Of The Week</strong></a> 
+                                       <small class="block text-muted">Engg. Mathematics, Integration</small> 
+                                    </div>
+                                 </div>
+                                 <a href="javascript:void(0)"><img src="images/play_video.jpg" style="height:200px;width:100%"></a>
+                                 <small class=""><br><br> <a href="javascript:void(0)"><i class="fa fa-comment-o"></i> Comments (25)</a> </small> 
+                              </div>
+                              <footer class="panel-footer pos-rlt">
+                                 <span class="arrow top"></span> 
+                                 <form class="pull-out"> <input type="text" class="form-control no-border input-lg text-sm" placeholder="Write a comment..."> </form>
+                              </footer>
+                           </section>
+                        </div>
+                        <div class="col-lg-4 col-sm-4">
+                           <section class="panel">
+                              <div class="panel-body">
+                                 <div class="clearfix m-b">
+                                    <small class="text-muted pull-right"></small> 
+                                    <a href="javascript:void(0)" class="thumb-sm pull-left m-r"> 
+                                    </a> 
+                                    <div class="clear"> <a href="javascript:void(0)"><strong>Top Teacher Of The Month</strong></a> 
+                                       <small class="block text-muted"></small> 
+                                    </div>
+                                 </div>
+                                 <center><br>
+                                    <a href="javascript:void(0)"><img src="images/avatar.jpg" width="120px" class="img-circle"> </a><br><br>
+                                    <b>Mr. CALVIN</b>
+                                 </center>
+                                 <br><br><small class=""><br><br> <a href="javascript:void(0)"><i class="fa fa-comment-o"></i> Comments (30)</a> </small> 
+                              </div>
+                              <footer class="panel-footer pos-rlt">
+                                 <span class="arrow top"></span> 
+                                 <form class="pull-out"> <input type="text" class="form-control no-border input-lg text-sm" placeholder="Write a comment..."> </form>
+                              </footer>
+                           </section>
+                        </div>
+                            <div class="col-lg-4 col-sm-4">
+                           <section class="panel" >
+                              <div class="panel-body">
+                                 <div class="clearfix m-b">
+                                    <small class="text-muted pull-right">June 2017</small> 
+                                    <a href="javascript:void(0)" class="thumb-sm pull-left m-r"> 
+                                    <img src="images/a4.png" class="img-circle"> </a> 
+                                    <div class="clear"> <a href="javascript:void(0)"><strong>Top Session Of The Month</strong></a> 
+                                       <small class="block text-muted">Computer Science and Engineering, Networking</small> 
+                                    </div>
+                                 </div>
+                                 <a href="javascript:void(0)"><img src="images/play_video.jpg" style="height:200px;width:100%"></a>
+                                 <small class=""><br><br> <a href="javascript:void(0)"><i class="fa fa-comment-o"></i> Comments (50)</a> </small> 
+                              </div>
+                              <footer class="panel-footer pos-rlt">
+                                 <span class="arrow top"></span> 
+                                 <form class="pull-out"> <input type="text" class="form-control no-border input-lg text-sm" placeholder="Write a comment..."> </form>
+                              </footer>
+                           </section>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                           <section class="panel">
+                              <header class="panel-heading">Future Goals : Students
+                              </header>
+                              <div class="panel-body">
+                              <img src="images/manager/management_1.jpg">
+                              </div>
+                           </section>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                           <section class="panel">
+                              <header class="panel-heading">Satisfactory Analysis On Teacher's Performance
+                              </header>
+                              <div class="panel-body">
+                                 <img src="images/manager/management_2.jpg">
+                                 
+                              </div>
+                           </section>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                           <section class="panel">
+                              <header class="panel-heading">Top Sessions Of This Week
+                              </header>
+                              <div class="panel-body">
+                                 <img src="images/manager/management_4.jpg">
+                              </div>
+                           </section>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                           <section class="panel">
+                              <header class="panel-heading">Top Performers : Teachers
+                              </header>
+                              <div class="panel-body">
+                                 <img src="images/manager/management_3.jpg">
+                              </div>
+                           </section>
+                        </div>
+                     </div>
+                  </section>
+            </aside>
+            <!-- /.aside --> 
+            </section> <a href="javascript:void(0)" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a> 
+         </section>
+         <!-- /.vbox --> 
+      </section>
+      <script src="js/app.v2.js"></script>
+      <script type="text/javascript" src="js/Controllers/managerDashboardController.js"></script>
+         <script type="text/javascript" src="js/Controllers/sideBarController_manager.js"></script>
+   </body>
+</html>
